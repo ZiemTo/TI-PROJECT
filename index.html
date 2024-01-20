@@ -6,6 +6,7 @@
     <title>Novo Study - create your own study space!</title>
     <link rel="stylesheet" href="index.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="all">
@@ -25,10 +26,16 @@
                 </div>
             </div>
             <div id="main">
-            <div id="list">
+            <div class="list">
+                <div id="tasks">
                 <header>TO DO LIST</header>
-                <span><input type="checkbox" name="task1" id="task1"> <label for="task">ohwfuoheovhoe</label></span>
-                <span><input type="checkbox" name="task1" id="task1"> <label for="task">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quam facilis voluptatem sapiente illo quia sed porro quisquam asperiores eveniet voluptatibus, omnis in tempore sunt. Eos ipsum incidunt consectetur? Eveniet.</label></span>
+                <span class="spantask"><input type="checkbox" name="task" class="taskcheck"> <label for="task"><textarea class="task" oninput="ResizeTextarea()" placeholder="Write your task here" ></textarea></label></span>
+                </div>
+                <div id="listbuttons">
+                    <button onclick="AddTask()">Add a new task</button>
+                    <button onclick="HideTasks()">Hide completed</button>
+                </div>
+
             </div>
             <div id="mainright">
             <div id="timer">
@@ -38,7 +45,7 @@
             </div>
             
             <div id="music">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+                <!--<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>      -->      </div>
         </div>
     </div>
             <menu>
