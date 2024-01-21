@@ -81,6 +81,7 @@ menu{
     width: 120px;
     font-weight: 600;
     box-sizing: border-box;
+    justify-self: top;
 }
 .time::-webkit-outer-spin-button,.time::-webkit-inner-spin-button
 {
@@ -90,7 +91,8 @@ menu{
     -moz-appearance: textfield;
   }
 #main{
-    height:100vh;
+    height:fit-content;
+    min-height: 100vh;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -99,19 +101,35 @@ menu{
 .list{
     flex-direction: column;
     width:30vw;
+    
     height:80vh;
     background-color: rgb(0,0,0,0.4);
     display:flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: left;
-    min-width: min-content;
-    min-height: min-content;
+    margin-top:1vh;
+    padding: 10px;
+}
+#tasks{
+    overflow-y: auto;
+    margin-bottom: 2%;
+    height: 100%;
+}
+::-webkit-scrollbar-thumb {
+    background: white;
+   height: 20px;;
+    border-radius: 50px;
+  }
+::-webkit-scrollbar{
+    width:0.3em;
 }
 #mainright{
+    height: max-content;
     display:flex;
     flex-direction:column;
     gap:6vh;
+    justify-content: space-between;
 }
 #music{
     height:37vh;
@@ -127,6 +145,7 @@ header{
 .spantask{
     display:flex;
     margin:7% 5% 0 7%;
+    justify-self: start;
   
 }
 .list>div>span>label{
@@ -151,6 +170,8 @@ input[type="checkbox"]
     margin-top: 5px;;
     display: grid;
     place-content: center;
+    animation-name: cross;
+    animation-duration: 1s;
 }
 input[type="checkbox"]::before {
     content: "";
@@ -180,6 +201,7 @@ input[type="checkbox"]::before {
     resize:none;
     
   }
+
   .task::placeholder{
     color:rgb(255,255,255,0.3)
   }
@@ -202,7 +224,7 @@ input[type="checkbox"]::before {
     align-self: center;
     gap:5px;
     height:100px;
-
+    margin-bottom: 2%;
 }
 button:hover{
     background-color: rgb(255,255,255,0.3);
@@ -215,8 +237,17 @@ button:active{
 .hidden-span{
     display:none;
 }
-.showed-span{
-    
+.visible{
+    align-self: center;
 }
-  
+@media screen and (max-width:788px) {
+    .list{
+        display:none;
+    }
+}
+.crossed{
+    text-decoration: line-through;
+    pointer-events: none;
+}
+
 

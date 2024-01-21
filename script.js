@@ -1,12 +1,11 @@
-window.addEventListener('resize', updateTasksLayout);
-function ResizeTextarea()
+
+window.addEventListener("resize",ResizeTextarea );
+
+
+function ResizeTextarea(task)
 {
-    const task = document.getElementsByTagName("textarea");
-    for (let i = 0; i < task.length; i++) {
-    task[i].setAttribute("style", "height:" + (task[i].scrollHeight) + "px;");
-    task[i].addEventListener("input", OnInput, false);
-    updateTasksLayout()
-}
+    task.setAttribute("style", "height:" + (task.scrollHeight) + "px;");
+    task.addEventListener("input", OnInput, false);
 }
 function OnInput() {
     this.style.height = 'auto';
@@ -15,31 +14,63 @@ function OnInput() {
 }
 function AddTask()
 {
-    const newspan = document.createElement("span");
-    newspan.setAttribute("class","spantask")
-    newspan.innerHTML = "<input type=\"checkbox\" name=\"task\" class=\"taskcheck\"> <label for=\"task\"><textarea class=\"task\" oninput=\"ResizeTextarea()\" placeholder=\"Write your task here\" ></textarea></label>";
-    document.querySelector("#tasks").appendChild(newspan);
-    updateTasksLayout();
+        const newspan = document.createElement("span");
+        newspan.setAttribute("class","spantask visible-span")
+        newspan.innerHTML = "<input type=\"checkbox\" name=\"task\" onclick=\"Cross(this)\" class=\"taskcheck \"> <label for=\"task\"><textarea class=\"task\"  maxlength=\"80\" oninput=\"ResizeTextarea(this)\" placeholder=\"Write your task here\" ></textarea></label>";
+        document.querySelector("#tasks").appendChild(newspan);
+        var checkboxes = document.querySelectorAll(".taskcheck");
+        checkboxes.forEach((checkbox)=>
+        {
+        if(document.querySelector("#btn1").getAttribute("class")=="hidden-span"){
+        checkbox.addEventListener('change',HideTasks)}
+        })
+        
 }
-function HideTasks()
+
+async function HideTasks()
 {   
+
+    await new Promise(resolve => setTimeout(resolve, 800));
     var checkboxes = document.querySelectorAll(".taskcheck");
-    
    checkboxes.forEach((checkbox)=>
    {
         if(checkbox.checked)
         {
             checkbox.parentElement.setAttribute("class","hidden-span");
         }
+        checkbox.addEventListener('change',HideTasks)
    })
+   document.querySelector("#btn1").setAttribute("class","hidden-span");
+   document.querySelector("#btn2").setAttribute("class","visible-span");
+   
 }
-function updateTasksLayout()
+function ShowTasks()
 {
-      var listHeight = document.querySelector(".list").offsetHeight-100;
-      if(document.querySelector("#tasks").offsetHeight>=listHeight)
-      {
-        console.log(true);
-        document.querySelector(".spantask:last-child").setAttribute("class","hidden-span");
-      }
-     
+    var checkboxes = document.querySelectorAll(".taskcheck");
+    checkboxes.forEach((checkbox)=>
+   {
+        if(checkbox.checked)
+        {
+            checkbox.parentElement.setAttribute("class","spantask");
+            
+        }
+        checkbox.removeEventListener('change',HideTasks)
+        
+   })
+   document.querySelector("#btn1").setAttribute("class","visible-span");
+   document.querySelector("#btn2").setAttribute("class","hidden-span");
+}
+function Cross(checkbox)
+{
+  console.log
+    if(checkbox.checked)
+    {
+        
+        checkbox.nextSibling.nextSibling.firstChild.classList.add("crossed")
+        ResizeTextarea(checkbox.nextSibling.nextSibling.firstChild);
+    }
+    else{
+    
+        checkbox.nextSibling.nextSibling.firstChild.classList.remove("crossed")
+    }
 }
