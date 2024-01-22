@@ -11,22 +11,36 @@
 <body>
     <div id="all">
         <div id="container">
-            <img src="images/background1.jpeg" alt="tło1">
+            <img id="background" src="images/background1.jpeg" alt="tło1">
             <div id="top">
                 <div id="discord">
-                    <p>Hey! Join our Discord!</p>
+                   <a href="https://discord.gg/qcpQm49N" target="_blank"><img src="images/discord-logo-white.png" alt="Join our discord!"></a> 
                 </div>
-                <div id="right">
-                    <div id="sklep">
-                        sdjvos
-                    </div>
-                    <div id="waluta">
-                        100
-                    </div>
+                <div id="right" onclick="Close()">
+                    &times
                 </div>
             </div>
+            <div id="shop">
+            </div>
+            <menu>
+                <span class="closebtn" onclick="closeNav()">&times;</span>
+                <div id="options">
+                    <ul>
+                        <li onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
+                        <span class="hidden-span">coś</span>
+                        <li onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
+                        <span class="hidden-span">coś</span>
+                        <li onclick="ShowContent(this)"><span>&gt;</span> Select your pet</li>
+                        <span class="hidden-span">coś</span>
+                    </ul>
+                </div>
+                <div id="login">
+                    <hr>
+                    <span><img src="images/login.png" alt="Log in"> Log in </span> <hr>
+                </div>
+            </menu>
             <div id="main">
-            <div class="list">
+                <div class="list">
                 <header>TO DO LIST</header>
                 <div id="tasks">
                 
@@ -36,39 +50,48 @@
                     <button onclick="AddTask()">Add a new task</button>
                     <button onclick="HideTasks()" class="visible-span" id="btn1">Hide completed</button>
                     <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show tasks</button>
+                    </div>
+
+                </div>
+                <div id="mainright">
+                <div id="timer">
+                    <div id="time">
+                        <input type="number" class="time" value="15" >
+                   <span id="time1">:</span>
+                   <input type="number" class="time" value="00" max="60" >
+                    </div>
+                    <div id="timerbuttons">
+                        <button onclick="Start()">Start</button>
+                    <button onclick="Pause()">Pause</button>
+                    </div>
+                   
+                </div>
+            
+                <div id="music">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
+                
             </div>
-            <div id="mainright">
-            <div id="timer">
-                   <input type="number" class="time" value="15" >
-                   <span id="time1">:</span>
-                   <input type="number" class="time" value="00" >
-            </div>
-            
-            <div id="music">
-                <!--<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>      -->      </div>
-        </div>
-    </div>
-            <menu>
-
-            </menu>
-            <div id="settings">
-                sndvjs
+            <div id="settings" onclick="openNav()">
+                &equiv;
             </div>
             <div id="animal">
                 jfoiwefo
             </div>
             
-            
         </div>
+        
+    
+    
+   
         <div id="panel">
             <div id="callendar">
 
             </div>
         </div>
         <footer>
-            juwhgowhiuvgwue
+            NovoStudy 2024
         </footer>
     </div>
        

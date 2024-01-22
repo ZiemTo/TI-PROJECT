@@ -1,14 +1,29 @@
 
-window.addEventListener("resize",ResizeTextarea );
-
+window.addEventListener("resize",ResizeTextareawindow);
+function ResizeTextareawindow()
+{
+    const tasks = document.querySelectorAll("textarea");
+    tasks.forEach((task)=>
+    {
+        ResizeTextarea(task)
+    }) 
+   
+}
 
 function ResizeTextarea(task)
 {
+    var currentHeight = task.scrollHeight;
+    task.style.height = "0";
+    var minHeight = task.scrollHeight;
+    task.style.height = currentHeight + "px";
+    if (currentHeight > minHeight) {
+        task.style.height = minHeight + "px";
+    }
     task.setAttribute("style", "height:" + (task.scrollHeight) + "px;");
     task.addEventListener("input", OnInput, false);
 }
 function OnInput() {
-    this.style.height = 'auto';
+    this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
     
 }
@@ -74,3 +89,44 @@ function Cross(checkbox)
         checkbox.nextSibling.nextSibling.firstChild.classList.remove("crossed")
     }
 }
+function Close()
+{
+    document.querySelector("#top").setAttribute("style","display:none;")
+}
+function closeNav()
+{
+    document.querySelector("menu").style.width="0";
+}
+function openNav()
+{
+    document.querySelector("menu").style.width="350px";
+}
+function ShowContent(li)
+{
+    console.log(li.firstChild.innerHTML)
+    if(li.firstChild.innerHTML=="&gt;")
+    { 
+        li.firstChild.innerHTML="&or;"
+        li.nextSibling.nextSibling.classList.add("visible-span");
+        li.nextSibling.nextSibling.classList.remove("hidden-span");
+    }
+
+    else {
+        li.firstChild.innerHTML="&gt;"
+        li.nextSibling.nextSibling.classList.add("hidden-span");
+        li.nextSibling.nextSibling.classList.remove("visible-span");
+    }
+    
+    
+}
+function Start()
+{
+    document.querySelector(".time:first-child").setAttribute("style","pointer-events:none;")
+    document.querySelector(".time:last-child").setAttribute("style","pointer-events:none;")
+}
+function Pause()
+{
+    document.querySelector(".time:first-child").removeAttribute("style")
+    document.querySelector(".time:last-child").removeAttribute("style")
+}
+
