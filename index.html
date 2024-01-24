@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="SetPrevious()">
     <div id="all">
         <div id="container">
             <img id="background" src="images/background1.jpeg" alt="tło1">
@@ -27,9 +27,48 @@
                 <div id="options">
                     <ul>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
-                        <span class="hidden-span">coś</span>
+                        <div class="hidden-span" >
+                            <div id="timervalues">
+                                <span id="defaulttimer">
+                                    <input type="number" value="00"><span id="time2">:</span><input type="number"  value="00" max="60" >
+                                    </span>
+                                    <span>
+                                        <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
+                                        <button onclick="ClearDefaultValues()" class="menubuttons">Clear</button>
+                                    </span>
+                            </div>
+                            
+                        </div>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
-                        <span class="hidden-span">coś</span>
+                        <span class="hidden-span" >
+                            <div class="slider">
+
+                                <div class="slides">
+                                  <div id="slide-1">
+                                    <img src="images/background1.jpeg" alt="background 1">
+                                  </div>
+                                  <div id="slide-2">
+                                    <img src="images/backround2.jpeg" alt="background 2">
+                                  </div>
+                                  <div id="slide-3">
+                                    <img src="images/backround3.jpeg" alt="background 3">
+                                  </div>
+                                  <div id="slide-4">
+                                    <img src="images/backround4.jpeg" alt="background 4">
+                                  </div>
+                                  <div id="slide-5">
+                                    <img src="images/backround2.jpeg" alt="background 5">
+                                  </div>
+                                </div>
+                                <span>
+                                <a href="#slide-1" onclick="SetBackground(this)">1</a>
+                                <a href="#slide-2" onclick="SetBackground(this)">2</a>
+                                <a href="#slide-3" onclick="SetBackground(this)">3</a>
+                                <a href="#slide-4" onclick="SetBackground(this)">4</a>
+                                <a href="#slide-5" onclick="SetBackground(this)">5</a>
+                            </span>
+                              </div>
+                        </span>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select your pet</li>
                         <span class="hidden-span">coś</span>
                     </ul>
@@ -44,7 +83,7 @@
                 <header>TO DO LIST</header>
                 <div id="tasks">
                 
-                <span class="spantask visible-span"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
+                <span class="spantask visible-span"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
                 </div>
                 <div id="listbuttons">
                     <button onclick="AddTask()">Add a new task</button>
@@ -56,9 +95,9 @@
                 <div id="mainright">
                 <div id="timer">
                     <div id="time">
-                        <input type="number" class="time" value="15" >
-                   <span id="time1">:</span>
-                   <input type="number" class="time" value="00" max="60" >
+                        <input type="number" class="time"  >
+                        <span id="time1">:</span>
+                        <input type="number" class="time">
                     </div>
                     <div id="timerbuttons">
                         <button onclick="Start()">Start</button>
