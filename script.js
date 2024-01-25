@@ -1,7 +1,12 @@
 
 var background;
-
-
+var flag1=0;
+document.querySelector("#time").firstChild.nextSibling.addEventListener("keypress", function (evt) {
+    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
+    {
+        evt.preventDefault();
+    }
+});
 window.addEventListener("resize",ResizeTextareawindow);
 function handleMutation(mutationsList, observer) {
     mutationsList.forEach((mutation) => {
@@ -27,8 +32,8 @@ const observer = new MutationObserver(handleMutation);
 const targetElement = document.querySelector(".list");
 
 const config = {  characterData: true, attributes: true, subtree: true  };
-const targetTextarea = document.querySelectorAll("textarea");
-const targetCheckbox = document.querySelectorAll("input[type=\"checkbox\"]");
+// const targetTextarea = document.querySelectorAll("textarea");
+// const targetCheckbox = document.querySelectorAll("input[type=\"checkbox\"]");
 
 
 observer.observe(targetElement, config);
@@ -56,11 +61,12 @@ function SetPrevious()
         
         document.querySelector("#time").firstChild.nextSibling.setAttribute("value",getCookie("minutes"));
     }
+    else  document.querySelector("#time").firstChild.nextSibling.setAttribute("value","00")
     if(getCookie("seconds").length>0)
     {
         
         document.querySelector("#time").lastChild.previousSibling.setAttribute("value",getCookie("seconds"));
-    }
+    } else  document.querySelector("#time").lastChild.previousSibling.setAttribute("value","00");
     
 }
 function getCookie(cname) {
@@ -204,18 +210,80 @@ function ShowContent(li)
     
     
 }
+
 function Start()
 {
+   
+    if(flag1==1) return;
+    flag1=1;
     document.querySelector(".time:first-child").setAttribute("style","pointer-events:none;")
     document.querySelector(".time:last-child").setAttribute("style","pointer-events:none;")
+    min=document.querySelector("#time").firstChild.nextSibling.value;
+    sec = document.querySelector("#time").lastChild.previousSibling.value;
+    if(sec>=60){
+        min=Number(min)
+        min+=Number(Math.floor(sec/60));
+        sec=String(sec%60);
+        document.querySelector("#time").lastChild.previousSibling.value=sec;
+    }
+    
+    if(min>=60)
+    { 
+        min=String(59)
+        sec=String(59);
+        document.querySelector("#time").firstChild.nextSibling.value=min;
+        document.querySelector("#time").lastChild.previousSibling.value=sec;
+    }
+    else 
+    {
+        min=String(min)
+        document.querySelector("#time").firstChild.nextSibling.value=min;
+    }
+    
+    min=Number(min)
+    sec=Number(sec);
+    min=String(min)
+    sec=String(sec)
+    document.querySelector("#time").firstChild.nextSibling.value=min
+    document.querySelector("#time").lastChild.previousSibling.value=sec
+
+    if(min<10) document.querySelector("#time").firstChild.nextSibling.value="0"+min
+    if(sec<10) document.querySelector("#time").lastChild.previousSibling.value="0"+sec
+   
+    if(min==0) min=-1;
+     timer = setInterval(function(){
+       
+        if (sec < 0 && min>=0) {
+            sec=59;
+            min--;
+            if(min<10) document.querySelector("#time").firstChild.nextSibling.value="0"+min;
+            else document.querySelector("#time").firstChild.nextSibling.value=min;
+            if(min==-1) document.querySelector("#time").firstChild.nextSibling.value="00"
+         }
+        if(sec<10) document.querySelector("#time").lastChild.previousSibling.value="0"+sec;
+        else document.querySelector("#time").lastChild.previousSibling.value=sec
+        sec--;
+         if (sec < 0 && min < 0) {
+        clearInterval(timer);
+        flag1=0;
+        document.querySelector(".time:first-child").removeAttribute("style")
+    document.querySelector(".time:last-child").removeAttribute("style")
+    }
+       
+    }, 1000);
 }
 function Pause()
 {
     document.querySelector(".time:first-child").removeAttribute("style")
     document.querySelector(".time:last-child").removeAttribute("style")
+    clearInterval(timer)
+    flag1=0;
+
+
 }
 function SetBackground(a)
 {
+   
     div = document.querySelector(a.getAttribute("href"))
     src = div.firstChild.nextSibling.getAttribute("src")
     document.querySelector("#background").setAttribute("src",src);
@@ -226,12 +294,26 @@ function SetDefaultValues()
     const cookieMinutes = "minutes";
     const cookieSeconds = "seconds";
  
-    const cookieMinutesValue = document.querySelector("#defaulttimer").firstChild.nextSibling.value;
-    const cookieSecondsValue = document.querySelector("#defaulttimer").lastChild.previousSibling.value;
-    
+     cookieMinutesValue = document.querySelector("#defaulttimer").firstChild.nextSibling.value;
+     cookieSecondsValue = document.querySelector("#defaulttimer").lastChild.previousSibling.value;
+    cookieMinutesValue=Number(cookieMinutesValue);
+    cookieMinutesValue=String(cookieMinutesValue)
+    cookieSecondsValue=Number(cookieSecondsValue);
+    cookieSecondsValue=String(cookieSecondsValue)
+    if(cookieSecondsValue>=60){
+        cookieMinutesValue=Number(cookieMinutesValue)
+        cookieMinutesValue+=Number(Math.floor(cookieSecondsValue/60));
+        cookieSecondsValue=String(cookieSecondsValue%60);
+    }
+    if(cookieMinutesValue>=60)
+    {
+        cookieMinutesValue = String(59);
+        cookieSecondsValue = String(59);
+    }
+    if(cookieMinutesValue<10) cookieMinutesValue="0"+cookieMinutesValue;
+    if(cookieSecondsValue<10) cookieSecondsValue="0"+cookieSecondsValue
+    console.log(cookieMinutesValue)
     const exp = new Date(2147483647 * 1000).toUTCString();
     document.cookie = cookieMinutes + '=' + cookieMinutesValue + ';expires=' + exp;
     document.cookie = cookieSeconds + '=' + cookieSecondsValue + ';expires=' + exp;
 }
-
-

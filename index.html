@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Study - create your own study space!</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <script src="script.js" defer></script>
 </head>
 <body onload="SetPrevious(), ResizeTextareawindow()">
@@ -30,7 +30,7 @@
                         <div class="hidden-span" >
                             <div id="timervalues">
                                 <span id="defaulttimer">
-                                    <input type="number" value="00"><span id="time2">:</span><input type="number"  value="00" max="60" >
+                                    <input type="number" value="00" max="99"><span id="time2">:</span><input type="number"  value="00" max="60" >
                                     </span>
                                     <span>
                                         <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
@@ -48,16 +48,22 @@
                                     <img src="images/background1.jpeg" alt="background 1">
                                   </div>
                                   <div id="slide-2">
-                                    <img src="images/backround2.jpeg" alt="background 2">
+                                    <img src="images/background2.jpeg" alt="background 2">
                                   </div>
                                   <div id="slide-3">
-                                    <img src="images/backround3.jpeg" alt="background 3">
+                                    <img src="images/background3.jpeg" alt="background 3">
                                   </div>
                                   <div id="slide-4">
-                                    <img src="images/backround4.jpeg" alt="background 4">
+                                    <img src="images/background4.jpeg" alt="background 4">
                                   </div>
                                   <div id="slide-5">
-                                    <img src="images/backround2.jpeg" alt="background 5">
+                                    <img src="images/background5.jpeg" alt="background 5">
+                                  </div>
+                                  <div id="slide-6">
+                                    <img src="images/background6.jpeg" alt="background 6">
+                                  </div>
+                                  <div id="slide-7">
+                                    <img src="images/background7.jpeg" alt="background 7">
                                   </div>
                                 </div>
                                 <span>
@@ -66,11 +72,12 @@
                                 <a href="#slide-3" onclick="SetBackground(this)">3</a>
                                 <a href="#slide-4" onclick="SetBackground(this)">4</a>
                                 <a href="#slide-5" onclick="SetBackground(this)">5</a>
+                                <a href="#slide-6" onclick="SetBackground(this)">6</a>
+                                <a href="#slide-7" onclick="SetBackground(this)">7</a>
                             </span>
                               </div>
                         </span>
-                        <li onclick="ShowContent(this)"><span>&gt;</span> Select your pet</li>
-                        <span class="hidden-span">coś</span>
+                        
                     </ul>
                 </div>
                 <div id="login">
@@ -86,8 +93,8 @@
                 <span class="spantask visible-span"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
                 </div>
                 <div id="listbuttons">
-                    <button onclick="AddTask()">Add a new task</button>
-                    <button onclick="HideTasks()" class="visible-span" id="btn1">Hide completed</button>
+                    <button onclick="AddTask()">Add</button>
+                    <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
                     <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show tasks</button>
                     </div>
 
@@ -95,7 +102,7 @@
                 <div id="mainright">
                 <div id="timer">
                     <div id="time">
-                        <input type="number" class="time"  >
+                        <input type="number" class="time">
                         <span id="time1">:</span>
                         <input type="number" class="time">
                     </div>
@@ -107,17 +114,15 @@
                 </div>
             
                 <div id="music">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
 
                 
             </div>
             <div id="settings" onclick="openNav()">
                 &equiv;
             </div>
-            <div id="animal">
-                jfoiwefo
-            </div>
+            
             
         </div>
         
@@ -125,12 +130,45 @@
     
    
         <div id="panel">
-            <div id="callendar">
+            <h1>What is Pomodoro?</h3>
+            <article >
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                <span class="art">
+                    Here's how the Pomodoro Technique works: <br>
 
-            </div>
+                    1. Choose a Task: Select a task that needs to be done. <br>
+
+                    2. Set the Timer (Pomodoro): Set a timer for 25 minutes (1 Pomodoro). During this time, focus solely on the chosen task and work with intensity. <br>
+
+                    3. Work on the Task: Work on the task until the timer rings, signaling the end of the Pomodoro. If you think of something else you need to do, jot it down and continue working on the original <br>
+
+4. Take a Short Break: Take a short break, typically around 5 minutes. Use this time to relax, stretch, or do something unrelated to work. <br>
+
+5. Repeat: Repeat the process. After completing four Pomodoros, take a longer break, around 15-30 minutes. <br>
+
+6. Record and Review: Keep a record of completed Pomodoros and use them to review your productivity and identify areas for improvement. <br>
+                </span>
+                <span class="art">
+                    The Pomodoro Technique is effective for several reasons: <br>
+
+Focused Work: It encourages focused and concentrated work on a single task for a set period, reducing the likelihood of distractions. <br>
+
+Avoiding Burnout: Regular breaks help prevent burnout and maintain a sustainable level of energy and motivation. <br>
+
+Time Tracking: It provides a method for tracking how much time is spent on specific tasks, allowing for better time management. <br>
+
+Increased Awareness: The technique helps you become more aware of how you use your time and identify patterns in your work habits. <br>
+
+While the traditional Pomodoro duration is 25 minutes, some people find that adjusting the time intervals based on their preferences and tasks works better for them. The key is to find a balance that suits your work style and the nature of your tasks.
+                </span>
+            </article>
+            
         </div>
         <footer>
-            NovoStudy 2024
+            <p>NovoStudy 2024 </p><br>
+            <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
         </footer>
     </div>
        
