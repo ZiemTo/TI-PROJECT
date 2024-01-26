@@ -23,15 +23,16 @@
             </div>
             <div id="shop">
             </div>
-            <menu>
-                <span class="closebtn" onclick="closeNav()">&times;</span>
+            <menu id="menu">
+              
                 <div id="options">
-                    <ul>
+                    <span class="closebtn" onclick="closeNav()">&times;</span>
+                     <ul>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
                         <div class="hidden-span" >
                             <div id="timervalues">
                                 <span id="defaulttimer">
-                                    <input type="number" value="00" max="99"><span id="time2">:</span><input type="number"  value="00" max="60" >
+                                    <input type="number" value="00"><span id="time2">:</span><input type="number"  value="00">
                                     </span>
                                     <span>
                                         <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
@@ -42,6 +43,7 @@
                         </div>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
                         <span class="hidden-span" >
+                            <div id="sldr">
                             <div class="slider">
 
                                 <div class="slides">
@@ -77,6 +79,7 @@
                                 <a href="#slide-7" onclick="SetBackground(this)">7</a>
                             </span>
                               </div>
+                            </div>
                         </span>
                         
                     </ul>
@@ -96,12 +99,20 @@
                 <div id="listbuttons">
                     <button onclick="AddTask()">Add</button>
                     <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
-                    <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show tasks</button>
+                    <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
                     </div>
 
                 </div>
                 <div id="mainright">
                 <div id="timer">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                   
                     <div id="time">
                         <input type="number" class="time">
                         <span id="time1">:</span>
@@ -124,13 +135,16 @@
                 &equiv;
             </div>
             
-            
+            <div id="animal">
+              
+            </div>
         </div>
         
     
     
    
         <div id="panel">
+           
             <h1>What is Pomodoro?</h1>
             <article >
                 <span class="art">
@@ -167,6 +181,19 @@ While the traditional Pomodoro duration is 25 minutes, some people find that adj
             </article>
             
         </div>
+        <div id="dec">
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+        </div>
+
         <footer>
             <p>NovoStudy 2024 </p><br>
             <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>

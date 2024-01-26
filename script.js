@@ -184,11 +184,11 @@ function Close()
 }
 function closeNav()
 {
-    document.querySelector("menu").style.width="0";
+    document.querySelector("#menu").style.width="0";
 }
 function openNav()
 {
-    document.querySelector("menu").style.width="350px";
+    document.querySelector("#menu").style.width="40vh";
 }
 function ShowContent(li)
 {
@@ -215,11 +215,19 @@ function Start()
 {
    
     if(flag1==1) return;
+
+    
+    min=document.querySelector("#time").firstChild.nextSibling.value;
+    sec = document.querySelector("#time").lastChild.previousSibling.value;
+    if(min=="00" && sec=="00") 
+    {
+        return;
+    }
     flag1=1;
     document.querySelector(".time:first-child").setAttribute("style","pointer-events:none;")
     document.querySelector(".time:last-child").setAttribute("style","pointer-events:none;")
-    min=document.querySelector("#time").firstChild.nextSibling.value;
-    sec = document.querySelector("#time").lastChild.previousSibling.value;
+    
+   
     if(sec>=60){
         min=Number(min)
         min+=Number(Math.floor(sec/60));
@@ -265,6 +273,18 @@ function Start()
         sec--;
          if (sec < 0 && min < 0) {
         clearInterval(timer);
+        part = document.querySelectorAll(".particle");
+        part.forEach((par)=>
+        {
+            par.classList.add("particle1");
+        })
+        setTimeout(function(){
+            part = document.querySelectorAll(".particle");
+        part.forEach((par)=>
+        {
+            par.classList.remove("particle1");
+        })
+        },3000)
         flag1=0;
         document.querySelector(".time:first-child").removeAttribute("style")
     document.querySelector(".time:last-child").removeAttribute("style")
@@ -281,14 +301,54 @@ function Pause()
 
 
 }
-function SetBackground(a)
-{
-   
-    div = document.querySelector(a.getAttribute("href"))
-    src = div.firstChild.nextSibling.getAttribute("src")
-    document.querySelector("#background").setAttribute("src",src);
-    localStorage.setItem("background",src);
+function fadeOut(bg, duration) {
+    var opacity = 1;
+    var interval = 20;
+    var delta = interval / duration;
+
+    function decrease() {
+        opacity -= delta;
+        bg.style.opacity = opacity;
+
+        if (opacity <= 0.4) {
+            
+            clearInterval(fadeEffect);
+        }
+    }
+
+    var fadeEffect = setInterval(decrease, interval);
 }
+
+function fadeIn(bg, duration) {
+    var opacity = 0.2;
+    var interval = 20; 
+    var delta = interval / duration;
+    bg.style.opacity = opacity;
+    function increase() {
+        opacity += delta;
+        bg.style.opacity = opacity;
+
+        if (opacity >= 1) {
+            clearInterval(fadeEffect);
+        }
+    }
+
+    var fadeEffect = setInterval(increase, interval);
+}
+
+function SetBackground(a) {
+    var div = document.querySelector(a.getAttribute("href"));
+    var src = div.firstChild.nextSibling.getAttribute("src");
+    var background = document.querySelector("#background");
+    fadeOut(background, 500);
+    setTimeout(function () {
+        background.setAttribute("src", src);
+        fadeIn(background, 900);
+    }, 300);
+
+    localStorage.setItem("background", src);
+}
+
 function SetDefaultValues()
 {
     const cookieMinutes = "minutes";
