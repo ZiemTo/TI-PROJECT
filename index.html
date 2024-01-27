@@ -135,8 +135,70 @@
                 &equiv;
             </div>
             
-            <div id="animal">
-              
+            <div id="formbttn">
+                <a href="#popup1">Hey!
+                </a>
+            </div>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <h2>Are you enjoying NovoStudy?</h2>
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+                        <form action="#" name="form" onsubmit="Submit()">
+                           <span>
+                            <p>What do you think about NovoStudy?</p>
+                            <span class="rating">
+                                <label>
+                                    <input type="radio" name="stars" value="1" />
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="2" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="3" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>   
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="4" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="stars" value="5" />
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                    <span class="icon">★</span>
+                                  </label>
+                                
+                            </span>
+                        </span>
+                        <span>
+                            <p>How much time do you spend studying every day?</p> <br>
+                            <span><input type="number" name="timestudying" required min="0" id="timestudying"><label for="timestudying"> minutes</label></span>
+                        </span>
+                        <span>
+                            <p>Would you recommend NovoStudy to a fiend?</p> <br>
+                            <span>
+                                <input type="radio" name="recommend" value="yes"><label for="recommend"> yes</label> <br>
+                                <input type="radio" name="recommend" value="no"><label for="recommend"> no</label>
+                            </span>
+                        </span>
+                            <span>
+                                <label for="sug">Do you have any suggestion how we can improve NovoStudy?</label> <br><br><textarea name="sug" id="suggestions"></textarea></span>
+
+                                <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         

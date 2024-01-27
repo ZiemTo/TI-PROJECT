@@ -377,3 +377,8 @@ function SetDefaultValues()
     document.cookie = cookieMinutes + '=' + cookieMinutesValue + ';expires=' + exp;
     document.cookie = cookieSeconds + '=' + cookieSecondsValue + ';expires=' + exp;
 }
+function Submit()
+{   
+    document.querySelector(".content").innerHTML="Thanks for your opinion!"
+
+}

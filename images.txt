@@ -4,3 +4,5 @@ https://stock.adobe.com/pl/contributor/210540523/anggri?load_type=author&prev_ur
 https://stock.adobe.com/pl/contributor/211105496/tj-barnwell?load_type=author&prev_url=detail
 Books icon - free Flaticon License https://www.flaticon.com/free-icons/book Book icons created by Smashicons - Flaticon 
 Login icon - my own png
+Star rating - https://codepen.io/neilpomerleau/pen/wzxzQM
+Popup box - https://codepen.io/imprakash/pen/GgNMXO
