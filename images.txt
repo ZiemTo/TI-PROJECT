@@ -6,3 +6,4 @@ Books icon - free Flaticon License https://www.flaticon.com/free-icons/book Book
 Login icon - my own png
 Star rating - https://codepen.io/neilpomerleau/pen/wzxzQM
 Popup box - https://codepen.io/imprakash/pen/GgNMXO
+Slider, checkbox - materiały udostępnione przez prowadzącego na Technologiach Internetowych

@@ -75,7 +75,7 @@ footer{
     min-height: 200px;
     font-weight: 600;
     flex-direction: column;
-    
+    min-width: 250px;
 }
 #time{
     display: flex;
@@ -85,7 +85,7 @@ footer{
     width: 100%;
 }
 #time1{
-    font-size: 10vh;
+  font-size:500%;
     font-family: 'Arimo', sans-serif;
     width: 10%;
     text-align: center;
@@ -95,21 +95,23 @@ footer{
     outline:none;
     background-color: transparent;
     color:white;
-    font-size:10vh;
+    font-size:500%;
     font-family: 'Arimo', sans-serif;
     text-align: center;
-    width: 16vh;
+    width: 120%;
+    max-width: 120px;
     font-weight: 600;
     box-sizing: border-box;
     justify-self: top;
     
 }
-.time::-webkit-outer-spin-button,.time::-webkit-inner-spin-button
+::-webkit-outer-spin-button, ::-webkit-inner-spin-button
 {
     display:none;
 }
-.time {
-    -moz-appearance: textfield;
+input[type='number']{
+  -webkit-appearance: none;
+  -moz-appearance:textfield;
   }
 #main{
     height:fit-content;
@@ -189,9 +191,9 @@ input[type="checkbox"]
     font: inherit;
     color: white;
     height: 2.2vh;
-    width: 2.2vh;
-    min-height: 15px;
-    min-width: 15px;
+    width: 2.4vh;
+    min-height: 18px;
+    min-width: 18px;
     border: 0.15em solid white;
     border-radius: 0.15em;
     transform: translateY(-0.075em);
@@ -220,7 +222,8 @@ input[type="checkbox"]::before {
     outline:none;
     background-color: transparent;
     color:white;
-    font-size: 2.2vh;
+    font-size: 20px;
+    
     text-align: left;
     min-height: fit-content;
     width: 100%;
@@ -339,7 +342,6 @@ button:active, input[type="submit"]:active{
     margin-top:0;
     font-size:20px;
     padding-left: 0;
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -845,9 +847,7 @@ a:hover{
 {
     display:none;
 }
-#timestudying {
-    -moz-appearance: textfield;
-  }
+
 input[type="submit"]
 {
   min-height: 50px;
@@ -866,19 +866,30 @@ form>span{
 form>span:last-of-type{
   height: auto;
 }
-@media screen and (max-width:1024px) {
+@media screen and (max-width:768px) {
   #main{
       flex-direction: column-reverse; 
       justify-content: start;
   }
-  #options{
-      margin:1px;
+ #sldr{
+    width: 95%;
+  
+  }
+  .slider{
+    width: 90%;
   }
   #mainright{
      width: 80vw;
+     
+  }
+  #options{
+    margin: 3px;
   }
   header{
       font-size: 30px;
+  }
+  .task{
+    font-size: 150%;
   }
   .list{
       width:80vw;
@@ -891,6 +902,7 @@ form>span:last-of-type{
       height: 300px;
       width: 80vw;
       margin-top:10%;
+      min-width: 0;
   }
   #background {
       height:1800px;
@@ -906,7 +918,7 @@ form>span:last-of-type{
   }
   
   #menu{
-      font-size: 30px;
+      font-size: 20px;
   }
   button{
       width: 150px;

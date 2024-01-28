@@ -1,12 +1,16 @@
 
 var background;
 var flag1=0;
-document.querySelector("#time").firstChild.nextSibling.addEventListener("keypress", function (evt) {
-    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
-    {
-        evt.preventDefault();
-    }
-});
+inp = document.querySelectorAll("input[type=\"number\"]")
+inp.forEach((x)=> 
+{
+    x.addEventListener("keypress", function (evt) {
+        if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57)
+        {
+            evt.preventDefault();
+        }
+    });
+})
 window.addEventListener("resize",ResizeTextareawindow);
 function handleMutation(mutationsList, observer) {
     mutationsList.forEach((mutation) => {
@@ -185,10 +189,12 @@ function Close()
 function closeNav()
 {
     document.querySelector("#menu").style.width="0";
+    document.querySelector("#menu").style.minWidth="0";
 }
 function openNav()
 {
-    document.querySelector("#menu").style.width="40vh";
+    document.querySelector("#menu").style.width="fit-content";
+    document.querySelector("#menu").style.minWidth="300px";
 }
 function ShowContent(li)
 {
