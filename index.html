@@ -21,8 +21,7 @@
                     &times
                 </div>
             </div>
-            <div id="shop">
-            </div>
+         
             <menu id="menu">
               
                 <div id="options">
@@ -32,7 +31,7 @@
                         <div class="hidden-span" >
                             <div id="timervalues">
                                 <span id="defaulttimer">
-                                    <input type="number" value="00"><span id="time2">:</span><input type="number"  value="00">
+                                    <input type="number" value="00" min="0" onpaste="return false;" ondrop="return false;" ><span id="time2">:</span><input type="number" min="0" value="00" onpaste="return false;" ondrop="return false;">
                                     </span>
                                     <span>
                                         <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
@@ -43,6 +42,7 @@
                         </div>
                         <li onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
                         <span class="hidden-span" >
+                            <!--Slider when user can choose background-->
                             <div id="sldr">
                             <div class="slider">
 
@@ -94,7 +94,7 @@
                 <header>TO DO LIST</header>
                 <div id="tasks">
                 
-                <span class="spantask visible-span"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
+                <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
                 </div>
                 <div id="listbuttons">
                     <button onclick="AddTask()">Add</button>
@@ -105,6 +105,7 @@
                 </div>
                 <div id="mainright">
                 <div id="timer">
+                    <!--Particle animation-->
                     <div class="particle"></div>
                     <div class="particle"></div>
                     <div class="particle"></div>
@@ -114,9 +115,9 @@
                     <div class="particle"></div>
                    
                     <div id="time">
-                        <input type="number" class="time">
+                        <input type="number" class="time" min="00" onpaste="return false;" ondrop="return false;">
                         <span id="time1">:</span>
-                        <input type="number" class="time">
+                        <input type="number" class="time" min="00" onpaste="return false;" ondrop="return false;">
                     </div>
                     <div id="timerbuttons">
                         <button onclick="Start()">Start</button>
@@ -136,6 +137,7 @@
             </div>
             
             <div id="formbttn">
+                <!--Popup box with survey-->
                 <a href="#popup1">Hey!
                 </a>
             </div>
@@ -183,7 +185,7 @@
                         </span>
                         <span>
                             <p>How much time do you spend studying every day?</p> <br>
-                            <span><input type="number" name="timestudying" required min="0" id="timestudying"><label for="timestudying"> minutes</label></span>
+                            <span><input type="number" name="timestudying" required min="0" id="timestudying" onpaste="return false;" ondrop="return false;"><label for="timestudying"> minutes</label></span>
                         </span>
                         <span>
                             <p>Would you recommend NovoStudy to a fiend?</p> <br>
@@ -244,6 +246,7 @@ While the traditional Pomodoro duration is 25 minutes, some people find that adj
             
         </div>
         <div id="dec">
+            <!--decorations-->
             <div class="triangle"></div>
             <div class="triangle"></div>
             <div class="triangle"></div>
@@ -258,6 +261,7 @@ While the traditional Pomodoro duration is 25 minutes, some people find that adj
 
         <footer>
             <p>NovoStudy 2024 </p><br>
+            <!--Contribution link-->
             <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
         </footer>
     </div>

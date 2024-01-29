@@ -1,5 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 body{
     margin:0;
     padding: 0;
@@ -11,30 +15,27 @@ body{
     min-height: 100vh;
 }
 #container{
-    min-height: 100vh;
+    min-height: 100vh; 
     padding-bottom: 2.5rem;
 }
-#background {
+#background { /*bg 10% vp, under all elements*/
     min-height: 100vh;
-   width: 100%;
-    
+    width: 100%;
     object-fit: cover;
     position:absolute;
     z-index: -1;
   }
 div{
-  
     z-index:1;
 }
 
 p{
     margin:0;
 }
-#top{
+#top{           /* Display discord link on the top of the other elements, top of vp*/           
     display: flex;
     justify-content: space-between;
     height: fit-content;
-    width: 100%;
     background-color: rgb(0, 0, 0,0.5);
     position: fixed;
     top: 0;
@@ -42,9 +43,8 @@ p{
     z-index: 3;
    
 }
-footer{
+footer{ /*footer always on bottom of vp*/
     background-color: rgb(32, 32, 32);
-   
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -57,14 +57,6 @@ footer{
     align-items: center;
     flex-direction: column;
   }
-#menu{
-    position: relative;
-    z-index: 1;
-}
-#panel{
-    height:500px;
-    background-color: rgb(47, 47, 47);
-}
 #timer{
     width:30vw;
     height:35vh;
@@ -81,30 +73,31 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     width: 100%;
 }
+/* ":" */
 #time1{
   font-size:500%;
     font-family: 'Arimo', sans-serif;
     width: 10%;
     text-align: center;
 }
+/* time input*/
 .time{
     border: none;
     outline:none;
     background-color: transparent;
     color:white;
-    font-size:500%;
+    font-size:500%; 
     font-family: 'Arimo', sans-serif;
-    text-align: center;
+
     width: 120%;
     max-width: 120px;
     font-weight: 600;
     box-sizing: border-box;
-    justify-self: top;
     
 }
+/*hide input default buttons*/
 ::-webkit-outer-spin-button, ::-webkit-inner-spin-button
 {
     display:none;
@@ -114,7 +107,6 @@ input[type='number']{
   -moz-appearance:textfield;
   }
 #main{
-    height:fit-content;
     min-height: 100vh;
     display:flex;
     justify-content: center;
@@ -122,19 +114,18 @@ input[type='number']{
     gap:6vh;
 }
 .list{
-    flex-direction: column;
     width:25vw;
     min-width:250px;
     height:80vh;
-    min-height: 350px;;
+    min-height: 450px;
     background-color: rgb(0,0,0,0.4);
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: left;
     margin-top:1vh;
     padding: 10px;
 }
+/*scrollbar for tasks*/
 #tasks{
     overflow-y: auto;
     margin-bottom: 2%;
@@ -155,9 +146,6 @@ input[type='number']{
     gap:6vh;
     justify-content: space-between;
     margin-top:1vh;
-    width: fit-content;
- 
-
 }
 #music{
     height:37vh;
@@ -168,12 +156,10 @@ header{
     margin:5% 10% 0% 10%;
     font-size: 35px;
     font-weight: 600;
-    justify-self: center;
 }
 .spantask{
     display:flex;
     margin:7% 5% 0 7%;
-    justify-self: start;
     min-height: 55px;
 }
 .list>div>span>label{
@@ -182,6 +168,7 @@ header{
     color:white;
     height:auto;
 }
+/*custom checkbox*/
 input[type="checkbox"]
 {
     -webkit-appearance: none;
@@ -200,8 +187,6 @@ input[type="checkbox"]
     margin-top: 8px;;
     display: grid;
     place-content: center;
-    animation-name: cross;
-    animation-duration: 1s;
 }
 input[type="checkbox"]::before {
     content: "";
@@ -238,6 +223,7 @@ input[type="checkbox"]::before {
     display:flex;
     flex-direction: row;
     justify-content: center;
+    gap:10px;
 }
   .task::placeholder{
     color:rgb(255,255,255,0.3)
@@ -271,12 +257,6 @@ button:active, input[type="submit"]:active{
     background-color: white;
     color: grey;
 }
-
-.visible{
-    align-self: center;
-}
-
-
 .crossed{
     text-decoration: line-through;
     pointer-events: none;
@@ -295,6 +275,7 @@ button:active, input[type="submit"]:active{
 #discord>a>img{
     height: 38px;
 }
+/*Left bottom button*/
 #settings{
     display: flex;
     align-items: center;
@@ -307,13 +288,9 @@ button:active, input[type="submit"]:active{
     background-color: rgb(0, 0, 0, 0.4);
     z-index: 2;
     cursor: pointer;
-}
-#settings{
-   margin-top: 1px;
+    margin-top: 1px;
    margin-right: 5px;
    font-size:40px;
-   
-   
 }
 #settings:hover{
     animation-name: scale;
@@ -321,6 +298,7 @@ button:active, input[type="submit"]:active{
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
 }
+/*Right bottom button*/
 #formbttn{
     position: fixed;
     bottom: 0;
@@ -382,13 +360,10 @@ li{
     height:30px;
     margin-right: 5px;
 }
+/*Scaling animation*/
 @keyframes scale {
     from{font-size: 40px;}
     to{font-size: 50px;}
-}
-#timerbuttons{
-    display: flex;
-    gap:10px;
 }
 #time{
     padding-top: 10px;   
@@ -438,16 +413,14 @@ input[type="number"]
 {
     text-align: center;
 }
-* {
-    box-sizing: border-box;
-  }
-  #sldr{
+
+#sldr{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .slider {
+}
+.slider {
     width: 100%;
     max-width: 300px;
     text-align: center;
@@ -457,21 +430,21 @@ input[type="number"]
     justify-content: space-evenly;
     height:300px;
    
-  }
+}
   
-  .slides {
+.slides {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
-  }
-  .slides::-webkit-scrollbar {
+}
+.slides::-webkit-scrollbar {
     width: 0px;
     height: 0px;
-  }
+}
   
-  .slides > div {
+.slides > div {
     scroll-snap-align: start;
     flex-shrink: 0;
     width: 100%;
@@ -483,9 +456,9 @@ input[type="number"]
     align-items: center;
     font-size: 100px;
    
-  }
+}
   
-  .slider >span> a {
+.slider >span> a {
     display: inline-flex;
     width: 1.5rem;
     height: 1.5rem;
@@ -499,22 +472,20 @@ input[type="number"]
     position: relative;
     color:white;
     font-size: 16px;
-  }
-  .slider >span> a:active {
+}
+.slider >span> a:active {
     top: 1px;
-  }
-  .slider > span>a:focus {
+}
+.slider > span>a:focus {
     background: white;
     color: grey;
-  }
-  .slides>div>img{
+}
+.slides>div>img{
     width:100%;
     height:146px;
     border-radius: 10px;
-    
-    
-  }
-
+}
+/*class that is set to elements with js to hide elements*/
   .hidden-span{
     display:none;
 }
@@ -522,6 +493,7 @@ input[type="number"]
     padding:5%;
     text-align: center;
     height: fit-content;
+    background-color: rgb(47, 47, 47);
 }   
 h1{
     margin-bottom:40px;
@@ -557,7 +529,7 @@ a:hover{
     position: relative;
     display: inline-block;
   }
-  
+  /*login popup*/
 #login::after {
     content: 'soon';
     position: absolute;
@@ -576,23 +548,23 @@ a:hover{
 #login:hover::after {
     display: block; 
 }
+/*decoration*/
 .triangle {
     width: 10%;
     height: 30px;
     background: white;
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
   }
-  #dec{
+#dec{
     background-color: rgb(47, 47, 47);
     display: flex;
     flex-direction: row;
     height:65px;
-  }
+}/*animation elements*/
 .particle{
     position: absolute;
 }
   .particle1 {
-    
     width: 10px;
     height: 10px;
     background-color: white;
@@ -628,9 +600,8 @@ a:hover{
 {
     animation: particles6 1s ease-out;
     animation-iteration-count: 3;
-   
-   
 }
+/*particle animation*/
   @keyframes particles {
     0% {
       transform: translateY(0) translateX(0) scale(1);
@@ -690,8 +661,9 @@ a:hover{
       transform: translateY(-400px) translateX(-200px) scale(0);
       opacity: 0;
     }
-  }
-  .overlay {
+}
+/*popup survey*/
+.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -701,13 +673,14 @@ a:hover{
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
-  }
-  .overlay:target {
+    z-index: 4;
+}
+.overlay:target {
     visibility: visible;
     opacity: 1;
-  }
+}
   
-  .popup {
+.popup {
     margin: 70px auto;
     padding: 20px;
     background: rgb(47,47,47);
@@ -715,14 +688,13 @@ a:hover{
     width: 450px;
     position: relative;
     transition: all 5s ease-in-out;
-    height: 700px;
-  }
-  
-  .popup h2 {
+    height: fit-content;
+}
+.popup h2 {
     margin-top: 0;
     color: white;
-  }
-  .popup .close {
+}
+.popup .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -731,87 +703,71 @@ a:hover{
     font-weight: bold;
     text-decoration: none;
     color: white;
-  }
- 
-  .popup  {
-  
-  overflow: auto;
-  }
-  form{
+}
+.popup  { 
+overflow: auto;
+}
+form{
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
     gap:15px;
-  }
-  .content{
+}
+.content{
     height: 80%;
-  }
-  .rating {
+}
+/*survey star rating*/
+.rating {
     display: inline-block;
     position: relative;
     height: 50px;
     line-height: 50px;
     font-size: 50px;
-  }
-  
-  .rating label {
+}
+.rating label {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     cursor: pointer;
-  }
-  
-  .rating label:last-child {
+}
+.rating label:last-child {
     position: static;
-  }
-  
-  .rating label:nth-child(1) {
+} 
+.rating label:nth-child(1) {
     z-index: 5;
-  }
-  
-  .rating label:nth-child(2) {
+}
+.rating label:nth-child(2) {
     z-index: 4;
-  }
-  
-  .rating label:nth-child(3) {
+}
+.rating label:nth-child(3) {
     z-index: 3;
-  }
-  
-  .rating label:nth-child(4) {
+}
+.rating label:nth-child(4) {
     z-index: 2;
-  }
-  
-  .rating label:nth-child(5) {
+}
+.rating label:nth-child(5) {
     z-index: 1;
-  }
-  
-  .rating label input {
+}
+.rating label input {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
-  }
-  
-  .rating label .icon {
+}
+.rating label .icon {
     float: left;
     color: transparent;
-  }
-  
-  .rating label:last-child .icon {
+}
+.rating label:last-child .icon {
     color: white;
-  }
-  
-  .rating:not(:hover) label input:checked ~ .icon,
-  .rating:hover label:hover input ~ .icon {
+}
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
     color: rgb(245, 245, 165);
-  }
+}
   
-  .rating label input:focus:not(:checked) ~ .icon:last-child {
-    color: #000;
-    text-shadow: 0 0 5px ;
-  }
 #suggestions{
   width: 100%;
   border: 2px solid white;
@@ -821,14 +777,12 @@ a:hover{
   font-size: 2.2vh;
   text-align: left;
   min-height: fit-content;
-
   box-sizing: border-box;
   word-wrap: break-word;
   resize:none;
   overflow: hidden;
 }
-#timestudying{
-  
+#timestudying{ 
   border: 2px solid white;
   outline:none;
   background-color: transparent;
@@ -853,12 +807,7 @@ input[type="submit"]
   min-height: 50px;
   width: 25%;
   align-self: flex-end;
-  justify-self:end;
   min-width: 100px;
-}
-
-h2{
-  margin-top: 100px;;
 }
 form>span{
   height: 20%;
@@ -866,10 +815,12 @@ form>span{
 form>span:last-of-type{
   height: auto;
 }
+/*when screen size is less than 768px*/
 @media screen and (max-width:768px) {
   #main{
       flex-direction: column-reverse; 
       justify-content: start;
+      height: 1800px;
   }
  #sldr{
     width: 95%;
@@ -895,9 +846,6 @@ form>span:last-of-type{
       width:80vw;
       height: 50%;
   }
-  #main{
-      height: 1800px;
-  }
   #timer{
       height: 300px;
       width: 80vw;
@@ -916,7 +864,6 @@ form>span:last-of-type{
       width:80vw;
       height: fit-content;
   }
-  
   #menu{
       font-size: 20px;
   }
@@ -932,13 +879,10 @@ form>span:last-of-type{
   .art{
       width: 100%;
       margin-bottom: 30px;
-      
   }
   .popup{
     width: 270px;
     height: 600px;
-  }
-  .popup{
     margin-top:10px;
   }
 }

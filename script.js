@@ -14,7 +14,7 @@ inp.forEach((x)=>
 window.addEventListener("resize",ResizeTextareawindow);
 function handleMutation(mutationsList, observer) {
     mutationsList.forEach((mutation) => {
-        let savetasks=document.querySelectorAll(".visible-span>label>textarea")
+        let savetasks=document.querySelectorAll(".spantask>label>textarea")
         var values=[];
         i=0;
         savetasks.forEach((savetask)=>
@@ -53,7 +53,7 @@ function SetPrevious()
         savedtasks.forEach((task)=>
         {
             const newspan = document.createElement("span");
-        newspan.setAttribute("class","spantask visible-span")
+        newspan.setAttribute("class","spantask")
         newspan.innerHTML = "<input type=\"checkbox\" name=\"task\" onclick=\"Cross(this)\" class=\"taskcheck \"> <label for=\"task\"><textarea class=\"task\"  maxlength=\"80\" oninput=\"ResizeTextarea(this)\" placeholder=\"Write your task here\" ></textarea></label>";
         document.querySelector("#tasks").appendChild(newspan);
         newspan.firstChild.nextSibling.nextSibling.firstChild.value=task;
@@ -121,7 +121,7 @@ function OnInput() {
 function AddTask()
 {
         const newspan = document.createElement("span");
-        newspan.setAttribute("class","spantask visible-span")
+        newspan.setAttribute("class","spantask")
         newspan.innerHTML = "<input type=\"checkbox\" name=\"task\" onclick=\"Cross(this)\" class=\"taskcheck \"> <label for=\"task\"><textarea class=\"task\"  maxlength=\"80\" oninput=\"ResizeTextarea(this)\" placeholder=\"Write your task here\" ></textarea></label>";
         document.querySelector("#tasks").appendChild(newspan);
         var checkboxes = document.querySelectorAll(".taskcheck");
@@ -148,7 +148,7 @@ async function HideTasks()
         checkbox.addEventListener('change',HideTasks)
    })
    document.querySelector("#btn1").setAttribute("class","hidden-span");
-   document.querySelector("#btn2").setAttribute("class","visible-span");
+   document.querySelector("#btn2").removeAttribute("class");
    
 }
 function ShowTasks()
@@ -164,7 +164,7 @@ function ShowTasks()
         checkbox.removeEventListener('change',HideTasks)
         
    })
-   document.querySelector("#btn1").setAttribute("class","visible-span");
+   document.querySelector("#btn1").removeAttribute("class");
    document.querySelector("#btn2").setAttribute("class","hidden-span");
 }
 function Cross(checkbox)
@@ -189,12 +189,12 @@ function Close()
 function closeNav()
 {
     document.querySelector("#menu").style.width="0";
-    document.querySelector("#menu").style.minWidth="0";
+    
 }
 function openNav()
 {
-    document.querySelector("#menu").style.width="fit-content";
-    document.querySelector("#menu").style.minWidth="300px";
+    document.querySelector("#menu").style.width="280px";
+    
 }
 function ShowContent(li)
 {
@@ -202,16 +202,12 @@ function ShowContent(li)
     if(li.firstChild.innerHTML=="&gt;")
     { 
         li.firstChild.innerHTML="&or;"
-        li.nextSibling.nextSibling.classList.add("visible-span");
-        
         li.nextSibling.nextSibling.classList.remove("hidden-span");
     }
 
     else {
         li.firstChild.innerHTML="&gt;"
         li.nextSibling.nextSibling.classList.add("hidden-span");
-        
-        li.nextSibling.nextSibling.classList.remove("visible-span");
     }
     
     
