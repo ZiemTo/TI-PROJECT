@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="script.js" defer></script>
 </head>
-<body onload="SetPrevious(), ResizeTextareawindow()">
+<body onload="SetPrevious(), List.ResizeTextareawindow()">
     <div id="all">
         <div id="container">
             <img id="background" src="images/background1.jpeg" alt="background">
@@ -70,13 +70,13 @@
                                   </div>
                                 </div>
                                 <span>
-                                <a class="a" href="#slide-1" onclick="SetBackground(this)">1</a>
-                                <a class="a" href="#slide-2" onclick="SetBackground(this)">2</a>
-                                <a class="a" href="#slide-3" onclick="SetBackground(this)">3</a>
-                                <a class="a" href="#slide-4" onclick="SetBackground(this)">4</a>
-                                <a class="a" href="#slide-5" onclick="SetBackground(this)">5</a>
-                                <a class="a" href="#slide-6" onclick="SetBackground(this)">6</a>
-                                <a class="a" href="#slide-7" onclick="SetBackground(this)">7</a>
+                                <a class="a" href="#slide-1" onclick="Background.SetBackground(this)">1</a>
+                                <a class="a" href="#slide-2" onclick="Background.SetBackground(this)">2</a>
+                                <a class="a" href="#slide-3" onclick="Background.SetBackground(this)">3</a>
+                                <a class="a" href="#slide-4" onclick="Background.SetBackground(this)">4</a>
+                                <a class="a" href="#slide-5" onclick="Background.SetBackground(this)">5</a>
+                                <a class="a" href="#slide-6" onclick="Background.SetBackground(this)">6</a>
+                                <a class="a" href="#slide-7" onclick="Background.SetBackground(this)">7</a>
                             </span>
                               </div>
                             </div>
@@ -93,12 +93,12 @@
                 <div class="list">
                     <header class="header">TO DO LIST</header>
                     <div id="tasks">
-                        <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
+                        <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="List.Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="List.ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
                     </div>
                     <div id="listbuttons">
-                        <button onclick="AddTask()">Add</button>
-                        <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
-                        <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
+                        <button onclick="List.AddTask()">Add</button>
+                        <button onclick="List.HideTasks()" class="visible-span" id="btn1">Hide</button>
+                        <button onclick="List.ShowTasks()" class="hidden-span" id="btn2">Show</button>
                     </div>
                 </div>
                 <div id="mainright">
