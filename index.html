@@ -12,10 +12,10 @@
 <body onload="SetPrevious(), ResizeTextareawindow()">
     <div id="all">
         <div id="container">
-            <img id="background" src="images/background1.jpeg" alt="tło1">
+            <img id="background" src="images/background1.jpeg" alt="background">
             <div id="top">
                 <div id="discord">
-                   <a href="https://discord.gg/qcpQm49N" target="_blank"><img src="images/discord-logo-white.png" alt="Join our discord!"></a> 
+                   <a class="a" href="https://discord.gg/qcpQm49N" target="_blank"><img src="images/discord-logo-white.png" alt="Join our discord!"></a> 
                 </div>
                 <div id="right" onclick="Close()">
                     &times
@@ -26,21 +26,21 @@
               
                 <div id="options">
                     <span class="closebtn" onclick="closeNav()">&times;</span>
-                     <ul>
-                        <li onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
+                     <ul class="ul">
+                        <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
                         <div class="hidden-span" >
                             <div id="timervalues">
                                 <span id="defaulttimer">
                                     <input type="number" value="00" min="0" onpaste="return false;" ondrop="return false;" ><span id="time2">:</span><input type="number" min="0" value="00" onpaste="return false;" ondrop="return false;">
-                                    </span>
-                                    <span>
+                                </span>
+                                <span>
                                         <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
                                         <button onclick="ClearDefaultValues()" class="menubuttons">Clear</button>
-                                    </span>
+                                </span>
                             </div>
                             
                         </div>
-                        <li onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
+                        <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
                         <span class="hidden-span" >
                             <!--Slider when user can choose background-->
                             <div id="sldr">
@@ -70,13 +70,13 @@
                                   </div>
                                 </div>
                                 <span>
-                                <a href="#slide-1" onclick="SetBackground(this)">1</a>
-                                <a href="#slide-2" onclick="SetBackground(this)">2</a>
-                                <a href="#slide-3" onclick="SetBackground(this)">3</a>
-                                <a href="#slide-4" onclick="SetBackground(this)">4</a>
-                                <a href="#slide-5" onclick="SetBackground(this)">5</a>
-                                <a href="#slide-6" onclick="SetBackground(this)">6</a>
-                                <a href="#slide-7" onclick="SetBackground(this)">7</a>
+                                <a class="a" href="#slide-1" onclick="SetBackground(this)">1</a>
+                                <a class="a" href="#slide-2" onclick="SetBackground(this)">2</a>
+                                <a class="a" href="#slide-3" onclick="SetBackground(this)">3</a>
+                                <a class="a" href="#slide-4" onclick="SetBackground(this)">4</a>
+                                <a class="a" href="#slide-5" onclick="SetBackground(this)">5</a>
+                                <a class="a" href="#slide-6" onclick="SetBackground(this)">6</a>
+                                <a class="a" href="#slide-7" onclick="SetBackground(this)">7</a>
                             </span>
                               </div>
                             </div>
@@ -91,20 +91,18 @@
             </menu>
             <div id="main">
                 <div class="list">
-                <header>TO DO LIST</header>
-                <div id="tasks">
-                
-                <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
-                </div>
-                <div id="listbuttons">
-                    <button onclick="AddTask()">Add</button>
-                    <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
-                    <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
+                    <header class="header">TO DO LIST</header>
+                    <div id="tasks">
+                        <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
                     </div>
-
+                    <div id="listbuttons">
+                        <button onclick="AddTask()">Add</button>
+                        <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
+                        <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
+                    </div>
                 </div>
                 <div id="mainright">
-                <div id="timer">
+                    <div id="timer">
                     <!--Particle animation-->
                     <div class="particle"></div>
                     <div class="particle"></div>
@@ -138,13 +136,13 @@
             
             <div id="formbttn">
                 <!--Popup box with survey-->
-                <a href="#popup1">Hey!
+                <a class="a" href="#popup1">Hey!
                 </a>
             </div>
             <div id="popup1" class="overlay">
                 <div class="popup">
                     <h2>Are you enjoying NovoStudy?</h2>
-                    <a class="close" href="#">&times;</a>
+                    <a class="close a" href="#">&times;</a>
                     <div class="content">
                         <form action="#" name="form" onsubmit="Submit()">
                            <span>
@@ -197,7 +195,7 @@
                             <span>
                                 <label for="sug">Do you have any suggestion how we can improve NovoStudy?</label> <br><br><textarea name="sug" id="suggestions"></textarea></span>
 
-                                <input type="submit" value="Submit">
+                                <input type="submit" value="Submit" class=".submit">
                         </form>
                     </div>
                 </div>
@@ -210,7 +208,7 @@
         <div id="panel">
            
             <h1>What is Pomodoro?</h1>
-            <article >
+            <article class="article">
                 <span class="art">
                     The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
                 </span>
@@ -259,10 +257,10 @@ While the traditional Pomodoro duration is 25 minutes, some people find that adj
             <div class="triangle"></div>
         </div>
 
-        <footer>
+        <footer class="footer">
             <p>NovoStudy 2024 </p><br>
             <!--Contribution link-->
-            <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
+            <a class="a" href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
         </footer>
     </div>
        

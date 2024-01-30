@@ -10,14 +10,40 @@ body{
     font-family: 'Arimo', sans-serif;
     color:white;
 }
+
 #all{
     position: relative;
     min-height: 100vh;
 }
+/*
+  id #container
+
+   Główny styl kontenera dla całej strony.
+  - Zapewnia minimalną wysokość równą 100% wysokości widoku (viewport).
+  - Dodaje padding na dole, aby zawartość nie przylegała do krawędzi strony.
+
+
+  Styleguide 1
+ */
 #container{
     min-height: 100vh; 
     padding-bottom: 2.5rem;
 }
+/*
+id #background
+
+ Tło strony, pokrywające 100% szerokości i 100% widoku (viewport), umieszczone poniżej wszystkich elementów.
+  - Minimalna wysokość równa 100% wysokości widoku.
+  - Szerokość 100%.
+  - Dostosowuje obraz do wymiarów obszaru.
+  - Pozycja absolutna, aby nie wpływać na układ innych elementów.
+  - Z-index ustawione na -1, aby umieścić tło pod innymi elementami.
+Przy mniejszych ekranach tło rozciąga się do większej wysokości, tak aby wszystkie elementy się na nim zmieściły
+
+Markup: <img id="background" src="images/background1.jpeg" alt="background">
+
+Styleguide 1.1
+*/
 #background { /*bg 10% vp, under all elements*/
     min-height: 100vh;
     width: 100%;
@@ -25,14 +51,36 @@ body{
     position:absolute;
     z-index: -1;
   }
-div{
-    z-index:1;
-}
 
 p{
     margin:0;
 }
-#top{           /* Display discord link on the top of the other elements, top of vp*/           
+/*
+id #top
+
+
+  Baner z linkiem do serwera discord, wyświetla się zawsze na górze strony.
+  - Wykorzystuje flexbox do ustawienia elementów w jednym rzędzie z odstępem między nimi.
+  - Wysokość dostosowuje się do zawartości.
+  - Tło o kolorze czarnym z przezroczystością 0.5.
+  - Pozycja ustalona jako 'fixed', aby baner był zawsze widoczny na górze strony.
+  - Zajmuje pełną szerokość strony.
+  - Z-index ustawione na 3, aby umieścić baner nad innymi elementami.
+
+
+Markup: 
+  <div id="top">
+      <div id="discord">
+          <a href="https://discord.gg/qcpQm49N" target="_blank"><img src="images/discord-logo-white.png" alt="Join our discord!"></a> 
+      </div>
+      <div id="right" onclick="Close()">
+          &times;
+      </div>
+  </div>
+
+Styleguide 1.2
+*/
+#top{          
     display: flex;
     justify-content: space-between;
     height: fit-content;
@@ -43,7 +91,31 @@ p{
     z-index: 3;
    
 }
-footer{ /*footer always on bottom of vp*/
+/*
+footer
+
+  Stopka strony.
+  - Tło o kolorze ciemnoszarym (#202020).
+  - Pozycja absolutna, aby umieścić stopkę na dole widoku.
+  - Zajmuje pełną szerokość strony.
+  - Wysokość ustawiona na 5rem.
+  - Z-index ustawione na 1, aby umieścić stopkę pod innymi elementami.
+  - Styl tekstu:
+    - Pogrubienie tekstu: 600.
+    - Rozmiar tekstu: 20px.
+  - Wykorzystuje flexbox do wycentrowania zawartości w pionie.
+
+
+Markup:
+<footer class="footer">
+  <p class="p">NovoStudy 2024 </p><br>
+    <!--Contribution link-->
+  <a class="a" href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
+  </footer>
+
+Styleguide 1.8
+*/
+.footer{ 
     background-color: rgb(32, 32, 32);
     position: absolute;
     bottom: 0;
@@ -57,6 +129,33 @@ footer{ /*footer always on bottom of vp*/
     align-items: center;
     flex-direction: column;
   }
+  /*
+  id #timer 
+
+  Blok z timerem
+  - Szerokość ustawiona na 30% szerokości widoku.
+  - Wysokość ustawiona na 35% wysokości widoku.
+  - Tło o kolorze czarnym z 40% przeźroczystością.
+  - Wykorzystuje flexbox do rozmieszczenia elementów w kontenerze.
+  - Wyrównanie zawartości wzdłuż osi głównej: przestrzeń równomierna.
+  - Wyrównanie zawartości wzdłuż osi poprzecznej: wyśrodkowane.
+  - Minimalna wysokość ustawiona na 200px.
+  - Pogrubienie tekstu: 600.
+  - Kierunek flexboxa ustawiony na kolumnę.
+  Przy mniejszych ekranach timer zmienia swoją wysokość i szerokość, tak aby dopasować się do urządzenia
+
+  Markup:
+  div id="timer">
+                    <div id="time">
+                        przyklad
+                    </div>
+                    <div id="timerbuttons">
+                    przykład
+                    </div>
+                </div>      
+                
+                 Styleguide 1.4.10
+  */
 #timer{
     width:30vw;
     height:35vh;
@@ -69,6 +168,24 @@ footer{ /*footer always on bottom of vp*/
     flex-direction: column;
     min-width: 250px;
 }
+/*
+  id #time 
+
+  Element zawierający pola do wprowadzania czasu
+    - Wykorzystuje flexbox do rozmieszczenia elementów w kontenerze.
+    - Kierunek flexboxa ustawiony na rząd (poziomy).
+    - Wyrównanie zawartości wzdłuż osi głównej: wyśrodkowane.
+    - Szerokość ustawiona na 100%.
+
+  Markup:
+  <div id="time">
+                        <input type="number" class="time" min="00" onpaste="return false;" ondrop="return false;">
+                        <span id="time1">:</span>
+                        <input type="number" class="time" min="00" onpaste="return false;" ondrop="return false;">
+                    </div>
+      
+Styleguide 1.4.11                    
+*/
 #time{
     display: flex;
     flex-direction: row;
@@ -76,6 +193,20 @@ footer{ /*footer always on bottom of vp*/
     width: 100%;
 }
 /* ":" */
+/*
+  id #time1 
+
+  Dwukropek pomiędzy inputami.
+  - Rozmiar czcionki ustawiony na 500%, tak aby skalował się wraz ze zmniejszeniem okna przeglądarki
+  - Użyta czcionka: 'Arimo', sans-serif.
+  - Szerokość ustawiona na 10%.
+  - Tekst wyśrodkowany.
+
+  Markup:
+  <span id="time1">:</span>
+      
+Styleguide 1.4.14                    
+*/
 #time1{
   font-size:500%;
     font-family: 'Arimo', sans-serif;
@@ -83,6 +214,23 @@ footer{ /*footer always on bottom of vp*/
     text-align: center;
 }
 /* time input*/
+/*
+class .time
+
+  Stylizacja pól czasowych.
+  - Brak obramowania i podświetlenia.
+  - Przezroczyste tło.
+  - Biały kolor tekstu.
+  - Rozmiar czcionki ustawiony na 500%, aby czcioka skalowała się wraz ze zmniejszaniem okna przeglądarki
+  - Użyta czcionka: 'Arimo', sans-serif.
+  - Szerokość ustawiona na 120%, z maksymalną szerokością 120px.
+  - Grubość czcionki ustawiona na 600.
+
+Markup
+<input type="number" class="time" min="00">
+              
+Styleguide 1.4.12
+*/
 .time{
     border: none;
     outline:none;
@@ -90,22 +238,53 @@ footer{ /*footer always on bottom of vp*/
     color:white;
     font-size:500%; 
     font-family: 'Arimo', sans-serif;
-
     width: 120%;
     max-width: 120px;
     font-weight: 600;
-    box-sizing: border-box;
-    
 }
+/*
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button
+
+  Ukrycie strzałek regulacji liczby w polach typu number dla przeglądarek WebKit.
+
+Styleguide 1.4.13
+*/
 /*hide input default buttons*/
 ::-webkit-outer-spin-button, ::-webkit-inner-spin-button
 {
     display:none;
 }
+/*
+input type number
+
+Dostosowanie wyglądu pola liczbowego dla różnych przeglądarek.
+
+styleguide 1.4.15
+*/
 input[type='number']{
   -webkit-appearance: none;
   -moz-appearance:textfield;
   }
+/*
+id #main
+
+Kontener przechowujący listę zadań oraz kolejny kontener zawierający timer i odtwarzacz muzyki
+- Minimalna wysokość to 100vh (100% widoku)
+- Wyśrodkowanie treści na osiach pionowej i poziomej
+- Przerwy między elementami flexboxa ustawione na 6vh
+
+Markup:
+ <div id="main" style="background-color:grey">
+                <div style="background-color:black">przykład</div>
+                <div id="mainright">
+                <div style="background-color:black" >przykład</div>
+                <div style="background-color:black">przykład</div>
+                </div>
+            </div>
+Przy mniejszych ekranach zawartość jest wyświetlana w kolumnie
+
+Styleguide 1.4
+*/
 #main{
     min-height: 100vh;
     display:flex;
@@ -113,6 +292,34 @@ input[type='number']{
     align-items: center;
     gap:6vh;
 }
+/*
+class list
+
+Lista zadań
+  - Szerokość to 25vw, z minimalną szerokością 250px
+  - Wysokość to 80vh, z minimalną wysokością 450px
+  - Przezroczyste tło o kolorze czarnym (0,0,0) z 40% przezroczystości
+  - Wyświetlanie elementów w układzie kolumnowym
+  - Rozmieszczenie treści z przestrzenią pomiędzy elementami
+  - Margines górny wynosi 1vh
+  - Wypełnienie wewnętrzne 10px
+Przy mniejszych ekranach zmienia swoje rozmiary, tak aby była czytelna i funkcjonalna
+
+Markup:
+<div class="list">
+                    <header class="header">TO DO LIST</header>
+                    <div id="tasks">
+                        <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
+                    </div>
+                    <div id="listbuttons">
+                        <button onclick="AddTask()">Add</button>
+                        <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
+                        <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
+                    </div>
+                </div>
+
+Styleguide 1.4.1
+*/
 .list{
     width:25vw;
     min-width:250px;
@@ -126,11 +333,36 @@ input[type='number']{
     padding: 10px;
 }
 /*scrollbar for tasks*/
+/*
+id #tasks
+
+Kontener na zadania
+  - Obszar przewijania pionowego, gdy zawartość przekracza dostępną wysokość
+  - Margines dolny wynosi 2%
+  - Wysokość 100%
+
+Markup:
+<div id="tasks">
+                        <span class="spantask"><input type="checkbox" name="task" class="taskcheck" onclick="Cross(this)" > <label for="task"><textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label></span>
+                    </div>
+
+Styleguide 1.4.3                    
+*/
 #tasks{
     overflow-y: auto;
     margin-bottom: 2%;
     height: 100%;
 }
+/*
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar
+
+Styl scrolla
+  -Scroll w kolorze białym
+  -Zaokrąglone krawędzie
+  -Pomniejszona szerokość względem standardowej
+
+styleguide 1.4.18
+*/
 ::-webkit-scrollbar-thumb {
     background: white;
     height: 20px;;
@@ -139,6 +371,18 @@ input[type='number']{
 ::-webkit-scrollbar{
     width:0.3em;
 }
+/*
+id #mainright
+
+Kontener na timer i odtwarzacz muzyki
+  - Wysokość dostosowana do zawartości
+  - Wyświetlanie elementów w kolumnie
+  - Odstęp pomiędzy elementami wynoszący 6% wysokości widoku
+  - Dostosowanie do przestrzeni dostępnej powyżej (margines górny 1% wysokości widoku)
+Przy mniejszych ekranach zajmuje 80vw
+
+Styleguide 1.4.9
+*/
 #mainright{
     height: max-content;
     display:flex;
@@ -147,21 +391,67 @@ input[type='number']{
     justify-content: space-between;
     margin-top:1vh;
 }
+/*
+id #music 
+
+Kontener przechowujący zewnętrzny odtwarzacz muzyki
+  - Wysokość 37% wysokości widoku
+  - Szerokość 30% szerokości widoku
+Przy mniejszych ekranach wyrównuje się szerokością z pozostałymi kontenerami
+
+styleguide 1.4.16
+*/
 #music{
     height:37vh;
     width:30vw;
 }
+/*
+header
+
+Nagłówek listy zadań
+  - Kolor tekstu: biały
+  - Marginesy: 5% (góra), 10% (prawo), 0% (dół), 10% (lewo)
+  - Rozmiar czcionki: 35 pikseli
+  - Grubość czcionki: 600 
+Czcionka zmniejsza się przy mniejszych ekranach
+
+Markup:
+<header class="header">TO DO LIST</header>
+
+Styleguide 1.4.2
+*/
 header{
     color:white;
     margin:5% 10% 0% 10%;
     font-size: 35px;
     font-weight: 600;
 }
+/*
+class .spantask
+
+Kontener z zadaniem.
+-Ustawia kontener w modelu flexbox, umożliwiając elastyczne rozmieszczanie elementów w jednym rzędzie
+-Marginesy: 7% od góry, 5% od prawej, brak odstępu od dołu, 7% od lewej
+-Minimalna wysokość: 55 pikseli
+
+Styleguide 1.4.4
+*/
 .spantask{
     display:flex;
     margin:7% 5% 0 7%;
     min-height: 55px;
 }
+/*
+class .list > div > span > label
+
+Zawiera pole tekstowe
+  - Ustawia margines z lewej strony na 10px.
+  - Ustawia szerokość na 100% szerokości rodzica.
+  - Ustawia kolor tekstu na biały.
+  - Automatycznie dostosowuje wysokość w zależności od zawartości.
+
+Styleguide 1.4.5
+*/
 .list>div>span>label{
     margin-left:10px;
     width: 100%;
@@ -169,7 +459,43 @@ header{
     height:auto;
 }
 /*custom checkbox*/
-input[type="checkbox"]
+/*
+class .taskcheck
+
+Styl checkboxa
+    - Resetuje domyślne stylowanie przeglądarki.
+    - Ustawia przezroczysty kolor tła.
+    - Zeruje marginesy.
+    - Dziedziczy styl czcionki od rodzica.
+    - Ustawia kolor tekstu na biały.
+    - Określa wysokość i szerokość elementu.
+    - Ustawia minimalną wysokość i szerokość dla responsywności.
+    - Dodaje białą obwódkę o grubości 0.15em.
+    - Zaokrągla rogi elementu z promieniem 0.15em.
+    - Przesuwa element w pionie o -0.075em.
+    - Ustawia margines górny na 8 pikseli.
+    - Używa kontenera siatkowego i centralizuje zawartość.
+
+Markup:
+<input type="checkbox" name="task" class="taskcheck" >
+
+::before
+- Tworzy pseudo-element '::before' dla klasy .taskcheck.
+- Ustala pustą treść tego elementu.
+- Ustawia szerokość i wysokość na 0.65em.
+- Definiuje kształt za pomocą clip-path.
+- Skaluje element do zera, czyli jest niewidoczny.
+- Ustala punkt transformacji od którego ma się skalować.
+- Dodaje płynny efekt przejścia dla transformacji z czasem 120ms i funkcją łatwej zmiany.
+- Ustawia biały kolor tła.
+
+.checked::before
+- Zastosowanie reguły dla pseudo-elementu '::before' tylko w przypadku, gdy element .taskcheck jest zaznaczony (checked).
+- Zmienia skalę pseudo-elementu na 1, aby stał się widoczny, gdy element jest zaznaczony.
+
+Styleguide 1.4.6
+*/
+.taskcheck
 {
     -webkit-appearance: none;
     appearance: none;
@@ -188,7 +514,7 @@ input[type="checkbox"]
     display: grid;
     place-content: center;
 }
-input[type="checkbox"]::before {
+.taskcheck::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
@@ -199,25 +525,59 @@ input[type="checkbox"]::before {
     background-color: white;
     
   }
-  input[type="checkbox"]:checked::before {
+  .taskcheck:checked::before {
     transform: scale(1);
   }
-  .task{
+/*
+class .task
+
+Textarea do wpisywania treści zadania
+  - Eliminuje obramowanie (border) elementu.
+  - Usuwa kontur (outline) elementu.
+  - Ustawia przezroczysty kolor tła.
+  - Ustawia kolor tekstu na biały.
+  - Ustawia rozmiar czcionki na 20 pikseli.
+  - Ustawia tekst w lewym górnym rogu.
+  - Minimalna wysokość dostosowuje się do zawartości.
+  - Szerokość elementu na 100% szerokości rodzica.
+  - Ustawia model pudełkowy na "border-box".
+  - Zawijanie tekstu w przypadku braku miejsca na bieżącej linii.
+  - Wyłącza możliwość zmiany rozmiaru elementu przez użytkownika.
+Czcionka zmienia się przy mniejszych ekranach
+
+Markup:
+<textarea  class="task" maxlength="80" oninput="ResizeTextarea(this)" placeholder="Write your task here" ></textarea>
+
+::placeholder 
+- Ustawia kolor tekstu dla atrybutu "placeholder" w elemencie o klasie .task.
+- Kolor tekstu to biały z przezroczystością 0.3 (rgba(255,255,255,0.3)).
+
+Styleguide 1.4.7
+*/
+.task{
     border: none;
     outline:none;
     background-color: transparent;
     color:white;
     font-size: 20px;
-    
     text-align: left;
     min-height: fit-content;
     width: 100%;
     box-sizing: border-box;
     word-wrap: break-word;
     resize:none;
-
-    
   }
+  /*
+id #timerbuttons
+
+Kontener z przyciskami
+- Ustawia szerokość na 70% szerokości rodzica.
+- Ustawia układ flexbox w kierunku wiersza (row).
+- Wyśrodkowuje zawartość wzdłuż osi głównej (poziomej) przy użyciu justify-content: center.
+- Dodaje odstępy (gap) między elementami w 10 pikselach.
+
+Styleguide 1.4.19
+*/
 #timerbuttons{
     width: 70%;
     display:flex;
@@ -228,7 +588,33 @@ input[type="checkbox"]::before {
   .task::placeholder{
     color:rgb(255,255,255,0.3)
   }
-  button, input[type="submit"]{
+  /*
+  button, submit
+
+  Styl przycisku
+  - Ustawia przezroczysty kolor tła.
+  - Dodaje białą obwódkę o grubości 3 pikseli.
+  - Ustawia biały kolor tekstu.
+  - Szerokość elementu na 70% szerokości rodzica.
+  - Ustawia wysokość na 60 pikseli.
+  - Zaokrągla rogi elementu z promieniem 3 pikseli.
+  - Ustawia rozmiar czcionki na 15 pikseli.
+  - Ustawia wagę czcionki na 500.
+Przy mniejszych ekranach ma stały, pasujący wielkością rozmiar
+
+  Markup: 
+  <div style="width:200px"><button> przykład </button></div>
+
+  :hover
+  - Zmienia kolor tła na biały z przezroczystością 0.3 (rgba(255,255,255,0.3)) po najechaniu kursorem.
+  - Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+  :active
+  - Zmienia kolor tła na biały i kolor tekstu na szary po aktywacji (naciśnięciu) przycisku.
+
+  Styleguide dodatkowe.3
+  */
+  button, .submit{
     background-color: transparent;
     border:3px solid white;
     color:white;
@@ -238,6 +624,28 @@ input[type="checkbox"]::before {
     font-size:15px;
     font-weight: 500;
   }
+  /*
+  id #listbuttons
+
+  Kontener na przyciski
+    - Ustawia szerokość na 70% szerokości rodzica.
+    - Ustawia układ flexbox w kierunku wiersza (row).
+    - Wyśrodkowuje elementy wzdłuż osi głównej (poziomej) przy użyciu justify-content: space-around.
+    - Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu align-items: center.
+    - Sam wyśrodkowuje na osi głównej (poziomej) dzięki align-self: center.
+    - Dodaje odstępy (gap) między elementami w 5 pikselach.
+    - Ustawia wysokość na 100 pikseli.
+    - Dodaje margines dolny na 2% szerokości rodzica.
+
+  Markup:
+ <div id="listbuttons">
+    <button onclick="AddTask()">Add</button>
+    <button onclick="HideTasks()" class="visible-span" id="btn1">Hide</button>
+    <button onclick="ShowTasks()" class="hidden-span" id="btn2">Show</button>
+  </div>
+
+  Styleguide 1.4.8                    
+  */
 #listbuttons{
     width: 70%;
     display: flex;
@@ -257,10 +665,52 @@ button:active, input[type="submit"]:active{
     background-color: white;
     color: grey;
 }
+/*
+class .crossed
+
+Klasa nadawana zadaniom w momencie kiedy ostają zaznaczone jako wykonane
+- Ustawia styl dekoracji tekstu na przekreślenie (line-through).
+- Wyłącza obsługę zdarzeń dla elementu, co oznacza, że element nie będzie reagować na interakcje użytkownika.
+
+styleguide 1.4.20
+*/
 .crossed{
     text-decoration: line-through;
     pointer-events: none;
 }
+/*
+id #discord
+
+Element, w którym znajduje się logo serwisu Discord, które jest jednocześnie linkiem do serwera na tej platformie.
+- Ustawia układ flexbox.
+- Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu align-items: center.
+- Dodaje margines ogólny na 10 pikseli.
+- Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+Markup: 
+<div id="discord">
+  <a class="a" href="https://discord.gg/qcpQm49N" target="_blank"><img src="images/discord-logo-white.png" alt="Join our discord!"></a> 
+</div>
+
+Styleguide 1.2.1
+*/
+
+/* 
+id #right
+
+Element w którym znajduje się ikonka, dzięki której można ukryć baner.
+- Ustawia układ flexbox.
+- Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu align-items: center.
+- Dodaje margines ogólny na 10 pikseli.
+- Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+Markup:
+<div id="right" onclick="Close()">
+  &times
+</div>
+
+Styleguide 1.2.2
+*/
 #discord, #right{
     display: flex;
     align-items: center;
@@ -276,6 +726,36 @@ button:active, input[type="submit"]:active{
     height: 38px;
 }
 /*Left bottom button*/
+/*
+id #settings
+
+Przycisk, po kliknięciu którego pojawia się boczne menu
+  - Ustawia układ flexbox.
+  - Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu align-items: center.
+  - Wyśrodkowuje elementy wzdłuż osi głównej (poziomej) przy użyciu justify-content: center.
+  - Ustawia pozycję elementu na stałą (fixed), pozostającą na dole i z lewej strony.
+  - Ustawia szerokość i wysokość na 50 pikseli.
+  - Ustawia przezroczysty kolor tła z wartością rgba(0, 0, 0, 0.4).
+  - Ustawia indeks z-index na 2, umieszczając element na przedzie.
+  - Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+  - Dodaje odstęp górny na 1 piksel.
+  - Dodaje odstęp prawy na 5 pikseli.
+  - Ustawia rozmiar czcionki na 40 pikseli.
+
+Markup:
+<div id="settings" onclick="openNav()">
+   &equiv;
+</div>
+
+:hover
+  - Dodaje animację skali (scale) po najechaniu kursorem.
+  - Ustawia czas trwania animacji na 1 sekundę.
+  - Określa ilość iteracji animacji na 1 s.
+  - Wypełnia animację wartościami końcowymi po zakończeniu.
+
+Styleguide 1.5
+
+*/
 #settings{
     display: flex;
     align-items: center;
@@ -299,14 +779,65 @@ button:active, input[type="submit"]:active{
    animation-fill-mode: forwards;
 }
 /*Right bottom button*/
+/*
+id #formbttn
+
+Przycisk, po kliknięciu którego otwiera się okienko z ankietą
+  - Ustawia pozycję elementu na stałą (fixed), pozostającą na dole i z prawej strony.
+  - Ustawia kolor tła na przezroczysty czarny z wartością rgba(0, 0, 0, 0.4).
+  - Ustawia indeks z-index na 2, umieszczając element na przedzie.
+
+Markup:
+  <div id="formbttn">
+    <!--Popup box with survey-->
+    <a class="a" href="#popup1">Hey!</a>
+</div>
+
+Styleguide 1.6
+*/
 #formbttn{
     position: fixed;
     bottom: 0;
     right: 0;
-   
     background-color: rgb(0, 0, 0, 0.4);
     z-index: 2;
 }
+/*
+id #menu
+
+Boczne menu zawierające dodatkowe ustawienia
+  - Ustawia wysokość na 100% widoku okna przeglądarki (100vh).
+  - Ustawia początkową szerokość na 0, domyślnie ukrywając menu.
+  - Ustawia kolor tła na ciemnoszary.
+  - Ustawia pozycję elementu na stałą (fixed).
+  - Ustawia indeks z-index na 3, umieszczając element na przedzie.
+  - Ustawia pozycję na górze i lewo na 0.
+  - Ukrywa poziome przewijanie (overflow-x).
+  - Dodaje efekt przejścia o czasie 0.5 sekundy.
+  - Ustawia margin-top na 0 i rozmiar czcionki na 20 pikseli.
+  - Ustawia padding z lewej strony na 0.
+  - Ustawia układ flexbox w kierunku kolumny (column).
+  - Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu justify-content: space-between.
+  - Wyłącza zawijanie tekstu (nowrap).
+  - Dodaje cień do elementu.
+
+Markup:
+<menu id="menu">
+<div id="options">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+                     <ul class="ul">
+                        <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
+                        <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
+                    </ul>
+                </div>
+                <div id="login">
+                    <hr>
+                    <span><img src="images/login.png" alt="Log in"> Log in </span> <hr>
+                </div>
+</menu>
+
+ Styleguide 1.3
+ */
 #menu{
     height: 100vh;
     width: 0;
@@ -325,30 +856,91 @@ button:active, input[type="submit"]:active{
     justify-content: space-between;
     text-wrap: nowrap;
     box-shadow: 10px 5px 50px rgb(255, 255, 255, 0.2);
-  
 }
+/*
+id #options
+
+Kontener zawierający listę dodatkowych ustawień
+
+Styleguide 1.3.1
+*/
 #options{
     margin:15px;
 }
-ul{
+/*
+class .ul
+
+Lista zawierająca dodatkowe opcje
+- Wyłącza domyślny styl punktowania listy.
+- Zeruje lewy margines wewnętrzny dla listy (padding-left).
+- Dodaje margines górny na 50 pikseli.
+
+Markup:
+<ul class="ul">
+ <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select default timer value</li>
+ <li class="li" onclick="ShowContent(this)"><span>&gt;</span> Select background</li>
+</ul>
+
+Styleguide 1.3.2
+*/
+.ul{
     list-style-type:none;
     padding-left: 0;
     margin-top: 50px;
 }
+/*
+class .closebtn
+
+Przycisk służący do zamykania menu rozwijanego
+- Ustawia pozycję na absolutną.
+- Umieszcza element w prawym górnym rogu, odległym o 25 pikseli od prawej krawędzi.
+- Ustawia rozmiar czcionki na 36 pikseli.
+- Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+Markup:
+<span class="closebtn" onclick="closeNav()">&times;</span>
+
+Styleguide 1.3.3
+*/
 .closebtn{
     position: absolute;
     right: 25px;
     font-size: 36px;
     cursor: pointer;
 }
-li{
+/*
+class .li
+
+Elementy listy zawierające dodatkowe opcje
+- Dodaje margines dolny na 15 pikseli.
+- Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+Markup:
+  <li class="li" ><span>&gt;</span> Select default timer value</li>
+
+Styleguide 1.3.4
+*/
+.li{
     margin-bottom: 15px;
     cursor: pointer;
 }
-#login{
-    
-    margin-bottom:1vh;
-}
+/*
+#login > span
+
+Przycisk logowania
+- Ustawia układ flexbox.
+- Wyśrodkowuje elementy wzdłuż osi pionowej (pionowej) przy użyciu align-items: center.
+- Dodaje margines z lewej strony równy 2% szerokości widoku.
+- Ustawia wysokość na 30 pikseli.
+- Zmienia kształt kursora na wskaźnik, sygnalizując interaktywność.
+
+Markup:
+<div id="login">
+  <span><img src="images/login.png" alt="Log in"> Log in </span> 
+</div>
+
+Styleguide 1.3.15
+*/
 #login>span{
     display: flex;
     align-items: center;
@@ -356,11 +948,41 @@ li{
     height: 30px;
     cursor: pointer;
 }
+
+/*
+#login > span > img
+
+Zachowanie obrazka w przycisku logowania
+- Ustawia wysokość obrazka na 30 pikseli.
+- Dodaje odstęp z prawej strony równy 5 pikselom.
+
+Markup:
+<div id="login">
+  <span><img src="images/login.png" alt="Log in"></span> 
+</div>
+
+Styleguide 1.3.16
+*/
 #login>span>img{
     height:30px;
     margin-right: 5px;
 }
 /*Scaling animation*/
+/*
+@keyframes scale
+
+Animacja, która skaluje element
+  - Definiuje animację o nazwie 'scale'.
+  - Rozpoczyna animację z rozmiarem czcionki 40 pikseli.
+  - Kończy animację z rozmiarem czcionki 50 pikseli.
+
+Markup:
+<div id="settings">
+  &equiv;
+</div>
+
+Styleguide Animacje.1
+*/
 @keyframes scale {
     from{font-size: 40px;}
     to{font-size: 50px;}
@@ -368,6 +990,28 @@ li{
 #time{
     padding-top: 10px;   
 }
+/*
+id #timervalues
+
+Kontener zawierający pola do wprowadzania domyślnej wartości odliczanego czasu oraz przyciski
+- Dziedziczy szerokość od rodzica.
+- Ustawia układ flexbox w kierunku kolumny.
+- Ustawia wysokość na 200 pikseli.
+- Rozmieszcza elementy równomiernie wzdłuż osi pionowej przy użyciu justify-content: space-evenly.
+
+Markup:
+<div id="timervalues">
+  <span id="defaulttimer">
+    <input type="number" value="00" min="0" onpaste="return false;" ondrop="return false;" ><span id="time2">:</span><input type="number" min="0" value="00" onpaste="return false;" ondrop="return false;">
+  </span>
+  <span>
+    <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
+    <button onclick="ClearDefaultValues()" class="menubuttons">Clear</button>
+  </span>
+</div>
+
+Styleguide 1.3.5
+*/
 #timervalues{
     width: inherit;
     display:flex;
@@ -375,6 +1019,25 @@ li{
     height:200px;
     justify-content: space-evenly;
 }
+/*
+ #defaulttimer>input
+
+ Styl dla pola formularza, które pozwala wprowadzić domyślne wartości czasu do odliczania
+  - Dodaje białą obwódkę o grubości 2 pikseli i zaokrągla rogi z promieniem 8 pikseli.
+  - Usuwa domyślny kontur.
+  - Ustawia przezroczysty kolor tła.
+  - Ustawia biały kolor tekstu.
+  - Ustawia szerokość na 60 pikseli.
+  - Ustawia rozmiar czcionki na 30 pikseli.
+  - Dodaje wewnętrzny odstęp wokół tekstu o wartości 5 pikseli.
+
+ Markup:
+ <span id="defaulttimer">
+    <input type="number" value="00" min="0" onpaste="return false;" ondrop="return false;" >
+</span>
+
+ Styleguide 1.3.6
+*/
 #defaulttimer>input{
     border: 2px solid white;
     border-radius: 8px;
@@ -384,12 +1047,26 @@ li{
     width:60px;
     font-size: 30px;
     padding:5px;
-
 }
 #defaulttimer>input::-webkit-outer-spin-button,#defaulttimer>input::-webkit-inner-spin-button
 {
     display:none;
 }
+/*
+id #defaulttimer
+
+Kontener zawierający pola do wprowadzania domyślnej wartości czasu
+- Ustawia wygląd pola tekstowego w przeglądarkach opartych na silniku Gecko (Firefox).
+- Ustawia układ flexbox w kierunku wiersza (row).
+- Wyśrodkowuje elementy wzdłuż osi głównej przy użyciu justify-content: center.
+
+Markup:
+<span id="defaulttimer">
+    <input type="number" value="00" min="0" onpaste="return false;" ondrop="return false;" ><span id="time2">:</span><input type="number" min="0" value="00" onpaste="return false;" ondrop="return false;">
+</span>
+
+Styleguide 1.3.7
+*/
 #defaulttimer {
     -moz-appearance: textfield;
     display: flex;
@@ -399,27 +1076,82 @@ li{
   #time2{
     font-size: 30px;;
   }
+/*
+#timervalues>span
+
+Kontener zawierający przyciski
+- Ustawia układ flexbox w kierunku wiersza.
+- Wyśrodkowuje elementy wzdłuż osi głównej przy użyciu justify-content: center.
+- Dodaje odstępy (gap) między elementami w 5 pikselach.
+
+Markup:
+<span>
+  <button onclick="SetDefaultValues()" class="menubuttons">Set</button>
+  <button onclick="ClearDefaultValues()" class="menubuttons">Clear</button>
+</span>
+
+Styleguide 1.3.8
+*/
 #timervalues>span{
     display: flex;
     flex-direction: row ;
     justify-content: center;
     gap:5px;
 }
+/*
+class .menubuttons
+
+Styl przycisków menu
+  - Ustawia szerokość na 80 pikseli.
+  - Ustawia wysokość na 50 pikseli.
+
+  Markup: <button class="menubuttons">przykład</button>
+styleguide 1.3.17
+*/
 .menubuttons{
     width:80px;
     height: 50px;
 }
+/*
+input type number
+
+Wyśrodkowanie tekstu w input type number
+
+styleguide dodatkowe.4
+*/
 input[type="number"]
 {
     text-align: center;
 }
+/*
+id #sldr
 
+Dodatkowy kontener pomocniczy na slider
+- Ustawia układ flexbox w kierunku kolumny (column).
+- Wyśrodkowuje elementy zarówno wzdłuż osi głównej, jak i pionowej przy użyciu justify-content: center i align-items: center.
+
+Styleguide 1.3.9
+*/
 #sldr{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+/*
+class .slider
+
+Kontener, w którym znajduje się slider
+  - Ustawia szerokość na 100%, ale ogranicza do maksymalnie 300 pikseli.
+  - Ustawia tekst na środku bloku.
+  - Ukrywa ewentualne elementy, które nie mieszczą się w obszarze widocznym.
+  - Ustawia układ flexbox w kierunku kolumny (column).
+  - Rozmieszcza elementy równomiernie przy użyciu justify-content: space-evenly.
+  - Ustawia wysokość na 300 pikseli
+Lekko zmniejszony przy mniejszych ekranach
+
+Styleguide 1.3.10
+*/
 .slider {
     width: 100%;
     max-width: 300px;
@@ -429,9 +1161,19 @@ input[type="number"]
     flex-direction: column;
     justify-content: space-evenly;
     height:300px;
-   
 }
-  
+/*
+class .slides
+
+Kontener, w którym znajdują się slajdy
+  - Ustawia układ flexbox.
+  - Umożliwia poziome przewijanie (overflow-x: auto).
+  - Włącza mechanizm przewijania z funkcją "scroll-snap" na osi poziomej.
+  - Dodaje efekt płynnego przewijania.
+  - Ukrywa pasek przewijania.
+
+Styleguide 1.3.11
+*/
 .slides {
     display: flex;
     overflow-x: auto;
@@ -443,7 +1185,28 @@ input[type="number"]
     width: 0px;
     height: 0px;
 }
-  
+/*
+class .slides > div
+
+Kontener, w którym znajduje się pojedynczy slajd
+  - Ustawia przewijanie do punktu początkowego (scroll-snap-align: start).
+  - Zapobiega elastycznemu zwężaniu elementu (flex-shrink: 0).
+  - Ustawia szerokość na 100%.
+  - Ustawia wysokość na 150 pikseli.
+  - Zaokrągla rogi z promieniem 10 pikseli.
+  - Dodaje białą obwódkę o grubości 2 pikseli.
+  - Ustawia układ flexbox, centralizując zawartość zarówno wzdłuż osi poziomej, jak i pionowej.
+  - Ustawia rozmiar czcionki na 100 pikseli.
+
+Markup:
+<div class="slides">
+<div id="slide-1">
+  <img src="images/background1.jpeg" alt="background 1">
+</div>
+</div>
+
+Styleguide 1.3.12
+*/
 .slides > div {
     scroll-snap-align: start;
     flex-shrink: 0;
@@ -455,9 +1218,34 @@ input[type="number"]
     justify-content: center;
     align-items: center;
     font-size: 100px;
-   
 }
-  
+/*
+class .slider > span > a
+
+Odnośnik do slajdu
+  - Ustawia układ inline-flex.
+  - Ustawia szerokość i wysokość na 1.5 rem.
+  - Ustawia przezroczyste tło.
+  - Wyłącza podkreślenie tekstu.
+  - Wyśrodkowuje zawartość zarówno wzdłuż osi głównej, jak i pionowej.
+  - Dodaje zaokrąglone rogi z promieniem 4 pikseli.
+  - Dodaje białą obwódkę o grubości 1 piksela.
+  - Dodaje margines na dole.
+  - Ustawia pozycję jako relatywną.
+  - Ustawia kolor tekstu na biały.
+  - Ustawia rozmiar czcionki na 16 pikseli.
+
+Markup:
+ <div class="slider"><span><a class="a">1</a></span></div>
+
+:active
+ - Podczas aktywacji (naciśnięcie) przesuwa element w dół o 1 piksel.
+
+:focus
+- Podczas aktywacji zmienia kolor tła na białe, a kolor tekstu na szary.
+
+ Styleguide 1.3.13
+*/
 .slider >span> a {
     display: inline-flex;
     width: 1.5rem;
@@ -473,6 +1261,7 @@ input[type="number"]
     color:white;
     font-size: 16px;
 }
+
 .slider >span> a:active {
     top: 1px;
 }
@@ -480,44 +1269,185 @@ input[type="number"]
     background: white;
     color: grey;
 }
+/*
+class .slider > div> img
+
+Zachowanie pojedynczago slajdu
+- Ustawia szerokość obrazka na 100%.
+- Ustawia wysokość obrazka na 146 pikseli.
+- Zaokrągla rogi obrazka z promieniem 10 pikseli.
+
+Styleguide 1.3.14
+*/
 .slides>div>img{
     width:100%;
     height:146px;
     border-radius: 10px;
 }
 /*class that is set to elements with js to hide elements*/
+/*
+class .hidden-span
+
+Klasa, która jest nadawana elementom, które mają być w danym momencie ukryte
+
+Styleguide dodatkowe.1
+*/
   .hidden-span{
     display:none;
 }
+/*
+id #panel
+
+Blok zawierający tekst na temat techniki pomodoro oraz element dekoracyjny słożony z trójkątów
+- Dodaje wewnętrzny odstęp wokół elementu o wartości 5% szerokości widoku.
+- Wyśrodkowuje tekst w obrębie elementu.
+- Ustawia wysokość na dopasowującą się do zawartości.
+- Ustawia kolor tła na ciemnoszary.
+
+Markup:
+<div id="panel">
+            <h1>What is Pomodoro?</h1>
+            <article class="article">
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                    </article>
+        </div>
+        <div id="dec">
+            <!--decorations-->
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+        </div>
+
+Styleguide 2
+*/
 #panel{
     padding:5%;
     text-align: center;
     height: fit-content;
     background-color: rgb(47, 47, 47);
-}   
+}
+/*
+h1
+
+Ustawia dolny margines 40px.
+
+Markup:
+ <h1>What is Pomodoro?</h1>
+
+ Styleguide 2.1
+*/
 h1{
     margin-bottom:40px;
 }
-article>span{
+/*
+class .art
+ 
+  Pojedynczy segment z tekstem
+  - Ustawia szerokość na 25% szerokości kontenera.
+  - Wyśrodkowuje tekst w lewo.
+Przy mniejszych ekranach zajmuje całą dostępkną szerokość
+
+Markup:
+ <article class="article">
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                </article>
+
+ Styleguide 2.2
+*/
+.art{
     width: 25%;
     text-align: left;
 }
-article{
+/*
+class .article
+ 
+Kontener zawierający segmenty z tekstem
+- Ustawia układ flexbox.
+- Dodaje odstęp między elementami (gap) o szerokości 10% kontenera.
+- Ustawia wysokość linii na 30 pikseli.
+- Rozmieszcza elementy równomiernie przy użyciu justify-content: space-around.
+Przy mniejszych ekranach segmenty sa wyswietlane jeden pod drugim
+
+Markup:
+ <article class="article">
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                <span class="art">
+                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It's a simple and effective way to improve productivity and focus by breaking work into intervals, traditionally 25 minutes in length, separated by short breaks. The technique is named after the Italian word for "tomato" because Cirillo initially used a tomato-shaped kitchen timer.
+                </span>
+                </article>
+
+ Styleguide 2.3
+*/
+.article{
     display: flex;
     gap:10%;
     line-height: 30px;
     justify-content: space-around;
 }
-a{
+/*
+class .a
+
+Styl linków
+  - Ustawia kolor tekstu na biały.
+  - Ustawia rozmiar czcionki na small.
+
+Markup:
+ <a class="a" href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
+
+:hover
+- Podczas najechania na link, uruchamia animację 'animhref'.
+- Ustawia nazwę animacji na 'animhref'.
+- Ustawia czas trwania animacji na 1 sekundę.
+- Określa ilość iteracji animacji na 1.
+- Wypełnia animację wartościami końcowymi po zakończeniu.
+
+ Styleguide dodatkowe.5
+*/
+.a{
     color: white;
     font-size: small;
 }
-a:hover{
+.a:hover{
     animation-name: animhref;
    animation-duration: 1s;
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
 }
+/*
+@keyframes animhref
+
+Animacja linków
+- Definiuje animację o nazwie 'animhref'.
+- Rozpoczyna animację z normalnym odstępem między literami.
+- Kończy animację z odstępem między literami równym 2 pikselom oraz skalowaniem tekstu o 5%.
+
+Markup:
+<a class="a" href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Smashicons - Flaticon</a>
+
+Styleguide Animacje.2
+*/
 @keyframes animhref {
     from{letter-spacing: normal;}
     to{
@@ -525,9 +1455,41 @@ a:hover{
         transform: scale(1.05);
     }
 }
+/*
+id #login
+
+Kontener z elementem logowania
+  - Ustawia pozycję jako relatywną.
+  - Ustawia wyświetlanie jako inline-block.
+  - Dodaje margines dolny o wysokości 1% widoku.
+
+  Markup:
+   <div id="login">
+                    <hr>
+                    <span><img src="images/login.png" alt="Log in"> Log in </span> <hr>
+                </div>
+
+::after
+  - Dodaje pseudo-element '::after' do selektora #login.
+  - Wstawia treść 'soon'.
+  - Ustawia pozycję jako absolutną, przypiętą do górnego lewego rogu kontenera.
+  - Przesuwa pseudo-element w prawo o 80% szerokości kontenera, skorygowane o połowę szerokości samego elementu, aby uzyskać efekt centrowania.
+  - Ustawia tło w kolorze białym.
+  - Dodaje wewnętrzny odstęp 5 pikseli z góry i dołu, oraz 10 pikseli z lewej i prawej strony.
+  - Ustawia kolor tekstu na szary.
+  - Dodaje obwódkę o grubości 1 piksela, kolorze #ccc, i zaokrągla rogi z promieniem 5 pikseli.
+  - Dodaje cień do pseudo-elementu.
+  - Początkowo ustawia pseudo-element jako niewidoczny. 
+  
+:hover::after
+- Podczas najechania myszką na element #login, zmienia widoczność pseudo-elementu '::after' na widoczny.
+
+Styleguide 3.18
+*/
 #login {
     position: relative;
     display: inline-block;
+    margin-bottom:1vh;
   }
   /*login popup*/
 #login::after {
@@ -549,21 +1511,94 @@ a:hover{
     display: block; 
 }
 /*decoration*/
+
+/*
+class .triangle
+
+Trójkąt - dekoracja
+- Ustawia szerokość na 10% szerokości kontenera.
+- Ustawia wysokość na 30 pikseli.
+- Ustawia białe tło.
+- Wykorzystuje właściwość clip-path do zdefiniowania trójkątnego kształtu za pomocą współrzędnych w formie wielokąta.
+
+Markup:
+<div class="triangle"></div>
+
+Styleguide 3.5
+*/
 .triangle {
     width: 10%;
     height: 30px;
     background: white;
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
   }
+/*decoration*/
+
+/*
+id #dec
+
+Kontener, w którym znajdują się trójkąty
+  - Ustawia kolor tła na ciemnoszary.
+  - Ustawia układ flexbox w kierunku wiersza (row).
+  - Ustawia wysokość na 65 pikseli.
+
+Markup:
+<div id="dec">
+            <!--decorations-->
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+        </div>
+  
+Styleguide 3.6
+*/
 #dec{
     background-color: rgb(47, 47, 47);
     display: flex;
     flex-direction: row;
     height:65px;
 }/*animation elements*/
+/*
+class .particle
+
+Cząsteczki animacji
+
+Styleguide 1.4.17
+*/
 .particle{
     position: absolute;
 }
+/*
+class .particle
+
+Cząsteczki animacji
+ - Ustawia pozycję jako absolutną.
+
+Styleguide 1.4.21
+*/
+/*
+class .particle1
+
+Cząsteczki animacji
+- Ustawia szerokość na 10 pikseli.
+- Ustawia wysokość na 10 pikseli.
+- Ustawia białe tło.
+- Dodaje zaokrąglone rogi z promieniem 50%, co daje efekt koła.
+- Dodaje animację o nazwie 'particles' trwającą 1 sekundę z funkcją czasu ease-out.
+- Określa ilość iteracji animacji na 3.
+
+:nth-child()
+Modyfikuje animacje tak, aby cząsteczki poruszały się w różnym kierunku i z różnym opóźnieniem, tak aby sprawiać wrażenie nieregularności.
+
+Styleguide 1.4.21
+*/
   .particle1 {
     width: 10px;
     height: 10px;
@@ -602,6 +1637,22 @@ a:hover{
     animation-iteration-count: 3;
 }
 /*particle animation*/
+/*
+keyframes particles
+
+Animacja cząsteczek, każda cząsteczka ma swoją animację, w której zmienia się połączenie końcowe, tu przykładowa animacja dla cząsteczki 1
+- Definiuje animację o nazwie 'particles'.
+- Na początku (0%):
+  - Nie przemieszcza elementu w pionie (translateY(0)) i poziomie (translateX(0)).
+  - Nie zmienia skali elementu (scale(1)).
+  - Ustawia pełną widoczność (opacity: 1).
+- Na końcu (100%):
+  - Przesuwa element w górę o 100 pikseli (translateY(-100px)) i w prawo o 400 pikseli (translateX(400px)).
+  - Zmniejsza skalę elementu do zera (scale(0)).
+  - Ustawia całkowitą przezroczystość (opacity: 0).
+
+Styleguide 1.4.22
+*/
   @keyframes particles {
     0% {
       transform: translateY(0) translateX(0) scale(1);
@@ -663,6 +1714,22 @@ a:hover{
     }
 }
 /*popup survey*/
+/*
+class .overlay
+
+Nakładka używana do chowania i wyświetlania wyskakującego okienka.
+  - Ustawia pozycję jako stałą (fixed), aby nakryć całą przestrzeń widoczności.
+  - Ustawia obszar górny, dolny, lewy i prawy na 0, aby zajmować całą przestrzeń.
+  - Ustawia tło w kolorze czarnym z przezroczystością 0.7, co daje efekt półprzezroczystego nakładki.
+  - Dodaje efekt przejścia dla właściwości opacity trwający 500 milisekund.
+  - Początkowo ustawia widoczność na ukrytą i całkowitą przezroczystość na 0.
+  - Ustawia indeks warstwy (z-index) na 4, aby być na wierzchu innych elementów.
+
+  :target
+   Podczas aktywacji (nawigacji do zakotwiczenia) zmienia widoczność na widoczny i całkowitą przezroczystość na 1.
+
+Styleguide 1.7
+*/
 .overlay {
     position: fixed;
     top: 0;
@@ -679,7 +1746,23 @@ a:hover{
     visibility: visible;
     opacity: 1;
 }
-  
+  /*
+class .popup
+
+Wyskakujące okienko
+- Ustawia marginesy górny i dolny na 70 pikseli, a lewy i prawy na auto, aby wyśrodkować element.
+- Dodaje wewnętrzny odstęp 20 pikseli.
+- Ustawia tło w kolorze ciemnoszarym.
+- Zaokrągla rogi z promieniem 5 pikseli.
+- Ustawia szerokość na 450 pikseli.
+- Ustawia pozycję jako relatywną.
+- Dodaje efekt przejścia dla wszystkich właściwości trwający 5 sekund z funkcją czasu ease-in-out.
+- Ustawia wysokość na dopasowującą się do zawartości.
+- Włącza pionowe przewijanie, gdy zawartość jest większa niż dostępna przestrzeń.
+Przy mniejszych ekranach rozmiar zmniejsza się tak aby wszystkie elementy były widoczne
+
+Styleguide 1.7.1
+*/
 .popup {
     margin: 70px auto;
     padding: 20px;
@@ -689,11 +1772,35 @@ a:hover{
     position: relative;
     transition: all 5s ease-in-out;
     height: fit-content;
+    overflow: auto;
 }
+  /*
+class .popup h2
+
+Nagłówek
+- Ustawia margines górny dla nagłówka h2 na 0, eliminując domyślny odstęp.
+- Ustawia kolor tekstu na biały.
+
+Styleguide 1.7.2
+*/
 .popup h2 {
     margin-top: 0;
     color: white;
 }
+  /*
+class .popup .close
+
+przycisk do zamknięcia formularza
+  - Ustawia pozycję jako absolutną.
+  - Przypina element do górnego prawego rogu okna modalnego z odstępem 20 pikseli od góry i 30 pikseli od prawej krawędzi.
+  - Dodaje efekt przejścia dla wszystkich właściwości trwający 200 milisekund.
+  - Ustawia rozmiar czcionki na 30 pikseli.
+  - Ustawia pogrubienie tekstu na bold.
+  - Wyłącza podkreślenie tekstu.
+  - Ustawia kolor tekstu na biały.
+
+Styleguide 1.7.3
+*/
 .popup .close {
     position: absolute;
     top: 20px;
@@ -704,9 +1811,17 @@ a:hover{
     text-decoration: none;
     color: white;
 }
-.popup  { 
-overflow: auto;
-}
+  /*
+form
+
+Formularz z ankietą
+  - Ustawia układ flexbox w kierunku kolumny (column).
+  - Ustawia wysokość na 100% dostępnej przestrzeni.
+  - Rozmieszcza elementy w kolumnie, równomiernie rozdzielając przestrzeń między nimi (space-between).
+  - Dodaje odstęp między elementami o wysokości 15 pikseli.
+
+Styleguide 1.7.4
+*/
 form{
     display: flex;
     flex-direction: column;
@@ -714,10 +1829,29 @@ form{
     justify-content: space-between;
     gap:15px;
 }
+  /*
+class .content
+
+Zawartość wyskakującego okienka, wysokość ustawiona na 80%;
+
+Styleguide 1.7.5
+*/
 .content{
     height: 80%;
 }
 /*survey star rating*/
+  /*
+class .rating
+
+Element służacy do oceny strony internetowej w formie gwiazdek
+  - Ustawia wyświetlanie jako inline-block.
+  - Ustawia pozycję jako względną.
+  - Ustawia wysokość na 50 pikseli.
+  - Ustawia odstęp między liniami na 50 pikseli.
+  - Ustawia rozmiar czcionki na 50 pikseli.
+
+Styleguide 1.7.6
+*/
 .rating {
     display: inline-block;
     position: relative;
@@ -725,6 +1859,21 @@ form{
     line-height: 50px;
     font-size: 50px;
 }
+/*survey star rating*/
+  /*
+class rating label
+
+Gwiazdki
+- Ustawia pozycję jako absolutną.
+- Przypina etykiety do górnego lewego rogu kontenera oceny.
+- Ustawia wysokość etykiety na 100% wysokości kontenera.
+- Ustawia kursor na wskaźnik, wskazując, że element jest interaktywny.
+
+:nth-child()
+Ustala który element wyświetla się nad którym
+
+Styleguide 1.7.7
+*/
 .rating label {
     position: absolute;
     top: 0;
@@ -750,16 +1899,45 @@ form{
 .rating label:nth-child(5) {
     z-index: 1;
 }
+/*survey star rating*/
+  /*
+class rating label input
+
+Radio input
+- Ustawia pozycję jako absolutną.
+- Przypina inputy do górnego lewego rogu kontenera oceny.
+- Ustawia przezroczystość inputów na 0, aby były niewidoczne dla użytkownika.
+
+Styleguide 1.7.8
+*/
 .rating label input {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
 }
+/*survey star rating*/
+  /*
+class rating label icon
+
+Pojedyncza gwiazda
+- Ustawia sposób układu elementu jako float: left, co oznacza, że element będzie przyklejał się do lewej strony.
+- Ustawia kolor tekstu na transparentny, co początkowo ukrywa ikony.
+
+Styleguide 1.7.9
+*/
 .rating label .icon {
     float: left;
     color: transparent;
 }
+  /*
+class rating label:last-child .icon
+
+- Określa styl ostatniej ikony w każdej grupie etykiet.
+- Zmienia kolor tekstu ikony na biały.
+
+Styleguide 1.7.10
+*/
 .rating label:last-child .icon {
     color: white;
 }
@@ -767,7 +1945,28 @@ form{
 .rating:hover label:hover input ~ .icon {
     color: rgb(245, 245, 165);
 }
-  
+  /*
+id #suggestions
+
+Pole na sugestie użytkownika
+- Ustawia szerokość na 100% dostępnej przestrzeni.
+- Dodaje obramowanie o grubości 2 pikseli w kolorze białym.
+- Wyłącza domyślny kontur.
+- Ustawia tło na przezroczyste.
+- Ustawia kolor tekstu na biały.
+- Ustawia rozmiar czcionki na 2.2vh.
+- Wyrównuje tekst do lewej.
+- Ustawia minimalną wysokość na dopasowującą się do zawartości.
+- Ustawia model pudełkowy na border-box.
+- Włącza zawijanie słów, aby unikać przekraczania kontenera.
+- Wyłącza możliwość zmiany rozmiaru textarea.
+- Ukrywa pionowy pasek przewijania.
+
+Markup:
+<textarea name="sug" id="suggestions"></textarea>
+
+Styleguide 1.7.11
+*/
 #suggestions{
   width: 100%;
   border: 2px solid white;
@@ -782,6 +1981,25 @@ form{
   resize:none;
   overflow: hidden;
 }
+  /*
+id #timestudying
+
+Pole do wprowadzania ile czasu dziennie użytkownik poświęca na naukę
+  - Dodaje obramowanie o grubości 2 piksele w kolorze białym.
+  - Wyłącza domyślny kontur.
+  - Ustawia tło na przezroczyste.
+  - Ustawia kolor tekstu na biały.
+  - Ustawia rozmiar czcionki na 2.2vh.
+  - Wyrównuje tekst do lewej.
+  - Ustawia minimalną wysokość na dopasowującą się do zawartości.
+  - Ustawia szerokość na 15% dostępnej przestrzeni.
+  - Ustawia minimalną szerokość na 50 pikseli.
+  - Włącza zawijanie słów, aby unikać przekraczania kontenera.
+  - Wyłącza możliwość zmiany rozmiaru textarea.
+  - Ukrywa pionowy pasek przewijania.
+
+Styleguide 1.7.12
+*/
 #timestudying{ 
   border: 2px solid white;
   outline:none;
@@ -801,7 +2019,17 @@ form{
 {
     display:none;
 }
+  /*
+input type submit
 
+Przysisk przesłania formularza
+  - Ustawia minimalną wysokość na 50 pikseli.
+  - Ustawia szerokość na 25% dostępnej przestrzeni.
+  - Ustawia samoistne dostosowanie na koniec (flex-end) w kontenerze flexbox.
+  - Ustawia minimalną szerokość na 100 pikseli.
+
+Styleguide 1.7.13
+*/
 input[type="submit"]
 {
   min-height: 50px;
@@ -809,6 +2037,13 @@ input[type="submit"]
   align-self: flex-end;
   min-width: 100px;
 }
+  /*
+form > span
+
+Elementy, które wchodzą w skład formularza - każdy o wysokości 20%
+
+Styleguide 1.7.14
+*/
 form>span{
   height: 20%;
 }
@@ -871,7 +2106,7 @@ form>span:last-of-type{
       width: 150px;
       height: 50px;
   }
-  article{
+  .article{
      flex-direction: column;
      width: 100%; 
      gap:10%; 
@@ -881,8 +2116,8 @@ form>span:last-of-type{
       margin-bottom: 30px;
   }
   .popup{
-    width: 270px;
-    height: 600px;
+    width: 90vw;
+    height: 80vh;
     margin-top:10px;
   }
 }
