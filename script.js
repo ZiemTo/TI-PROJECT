@@ -331,10 +331,10 @@ function ShowContent(li) {
 }
 
 /**
- * Funkcja odpowiada za działanie timera. Na początku sprawdzane są warunki czy wpisany czas nie jest zerowy i czy funkcja już się nie wykonuje. (flag==1)
- * Jeżeli któryś z tych warunków nie jest spełniony funkcja przerywa swoje działanie. Kiedy funkcja może się wykonać flaga jest ustawiana na 1.
- * Wyłączana jest możliwość zmiany wartości w czasie odliczania. Maksymalna wartość jaką można omierzyć to 1 godzina. W przypadku kiedy użytkownik
- * wprowadza wartości większe, wykonują się odpowiednie przeliczenia i zmiany. Np jeśli użytkownik poda w polu sekund 71, to w rezultacie w polu \
+ * Funkcja odpowiada za działanie timera. Na początku sprawdzane są warunki czy wpisany czas  jest zerowy i czy funkcja już się nie wykonuje. (flag==1)
+ * Jeżeli któryś z tych warunków jest spełniony funkcja przerywa swoje działanie. Kiedy funkcja może się wykonać flaga jest ustawiana na 1.
+ * Wyłączana jest możliwość zmiany wartości w czasie odliczania. Maksymalna wartość jaką można odmierzyć to 1 godzina. W przypadku kiedy użytkownik
+ * wprowadza wartości większe, wykonują się odpowiednie przeliczenia i zmiany. Np jeśli użytkownik poda w polu sekund 71, to w rezultacie w polu sekund
  * pojawi się 11, a do minut doda się 1. Jeśli użytkownik wprowadzi więcej niż 59 minut, wtedy wartość jest ustawiana na 59. Następnie funkcja stosuje 
  * konwersję na liczbę i znowu na tekst, aby pozbyć się zer z przodu (problem z dodatkowymi zerami przy zatrzymywaniu i włączaniu licznika).
  * Funkcja dodaje zera na początek do liczb mniejszych od 10. Jeśli wartość w polu minut jest równa 0 to jest podmieniana na -1. To rozwiązuje problem 
@@ -464,6 +464,14 @@ function SetDefaultValues() {
   const exp = new Date(2147483647 * 1000).toUTCString();
   document.cookie = cookieMinutes + "=" + cookieMinutesValue + ";expires=" + exp;
   document.cookie = cookieSeconds + "=" + cookieSecondsValue + ";expires=" + exp;
+}
+/**
+ * Funkcja tworząca ciasteczka o wartości 00, kiedy użytkownik usuwa domyślne ustawienia
+ */
+function ClearDefaultValues()
+{
+  document.cookie = "minutes = 00; expires=" + new Date(2147483647 * 1000).toUTCString();
+  document.cookie = "seconds = 00; expires=" + new Date(2147483647 * 1000).toUTCString();
 }
 /**
  * Funkcja wywołująca się przy przesłaniu formularza, wyświetlająca komunikat z podziękowaniem za wypełnienie ankiety za pomocą .innerHTML
