@@ -1,4 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
 
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
 var background;
 var flag1 = 0;
 /**
@@ -54,7 +82,7 @@ class List {
     const newspan = document.createElement("span");
     newspan.setAttribute("class", "spantask");
     newspan.innerHTML =
-      '<input type="checkbox" name="task" onclick="List.Cross(this)" class="taskcheck "> <label for="task"><textarea class="task"  maxlength="80" oninput="List.ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label>';
+      '&lt;input type="checkbox" name="task" onclick="List.Cross(this)" class="taskcheck "> &lt;label for="task">&lt;textarea class="task"  maxlength="80" oninput="List.ResizeTextarea(this)" placeholder="Write your task here" >&lt;/textarea>&lt;/label>';
     document.querySelector("#tasks").appendChild(newspan);
     var checkboxes = document.querySelectorAll(".taskcheck");
     checkboxes.forEach((checkbox) => {
@@ -127,7 +155,7 @@ class Background {
    * animacji (duration). Następnie tworzona jest funkcja odejmująca krok od obecnej przezroczystości i ustawiająca przezrozystość elementowi img.
    * Funkcja jest wywoływana w odstępach równych czasowi jedego kroku i wywoływanie kończy się w momencie, kiedy przezroczystość osiągie wartość
    * mniejszą lub równą 0.4.
-   * @param {object} bg Element HTML <img>  
+   * @param {object} bg Element HTML &lt;img>  
    * @param {int} duration Czas trwania animacji
    */
   static fadeOut(bg, duration) {
@@ -137,7 +165,7 @@ class Background {
     function decrease() {
       opacity -= delta;
       bg.style.opacity = opacity;
-      if (opacity <= 0.4) {
+      if (opacity &lt;= 0.4) {
         clearInterval(fadeEffect);
       }
     }
@@ -149,7 +177,7 @@ class Background {
    * animacji (duration). Następnie tworzona jest funkcja dodająca krok do obecnej przezroczystości i ustawiająca przezrozystość elementowi img.
    * Funkcja jest wywoływana w odstępach równych czasowi jedego kroku i wywoływanie kończy się w momencie, kiedy przezroczystość osiągie wartość
    * większą lub równą 1.
-   * @param {object} bg Element HTML <img>  
+   * @param {object} bg Element HTML &lt;img>  
    * @param {int} duration Czas trwania animacji
    */
   static fadeIn(bg, duration) {
@@ -194,7 +222,7 @@ function OnlyNumberInput() {
   inp = document.querySelectorAll('input[type="number"]');
   inp.forEach((x) => {
     x.addEventListener("keypress", function (evt) {
-      if ((evt.which != 8 && evt.which != 0 && evt.which < 48) || evt.which > 57) {
+      if ((evt.which != 8 &amp;&amp; evt.which != 0 &amp;&amp; evt.which &lt; 48) || evt.which > 57) {
         evt.preventDefault();
       }
     });
@@ -220,7 +248,7 @@ function CheckChanges() {
       var values = [];
       i = 0;
       savetasks.forEach((savetask) => {
-        if (!savetask.value.length < 1 && !savetask.parentElement.previousSibling.previousSibling.checked) {
+        if (!savetask.value.length &lt; 1 &amp;&amp; !savetask.parentElement.previousSibling.previousSibling.checked) {
           values[i] = savetask.value;
           i++;
         }
@@ -255,7 +283,7 @@ function SetPrevious() {
       const newspan = document.createElement("span");
       newspan.setAttribute("class", "spantask");
       newspan.innerHTML =
-        '<input type="checkbox" name="task" onclick="List.Cross(this)" class="taskcheck "> <label for="task"><textarea class="task"  maxlength="80" oninput="List.ResizeTextarea(this)" placeholder="Write your task here" ></textarea></label>';
+        '&lt;input type="checkbox" name="task" onclick="List.Cross(this)" class="taskcheck "> &lt;label for="task">&lt;textarea class="task"  maxlength="80" oninput="List.ResizeTextarea(this)" placeholder="Write your task here" >&lt;/textarea>&lt;/label>';
       document.querySelector("#tasks").appendChild(newspan);
       newspan.firstChild.nextSibling.nextSibling.firstChild.value = task;
     });
@@ -281,7 +309,7 @@ function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
+  for (let i = 0; i &lt; ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == " ") {
       c = c.substring(1);
@@ -321,11 +349,11 @@ function openNav() {
  * @param {object} li element listy pokazywany / chowany
  */
 function ShowContent(li) {
-  if (li.firstChild.innerHTML == "&gt;") {
-    li.firstChild.innerHTML = "&or;";
+  if (li.firstChild.innerHTML == "&amp;gt;") {
+    li.firstChild.innerHTML = "&amp;or;";
     li.nextSibling.nextSibling.classList.remove("hidden-span");
   } else {
-    li.firstChild.innerHTML = "&gt;";
+    li.firstChild.innerHTML = "&amp;gt;";
     li.nextSibling.nextSibling.classList.add("hidden-span");
   }
 }
@@ -339,11 +367,11 @@ function ShowContent(li) {
  * konwersję na liczbę i znowu na tekst, aby pozbyć się zer z przodu (problem z dodatkowymi zerami przy zatrzymywaniu i włączaniu licznika).
  * Funkcja dodaje zera na początek do liczb mniejszych od 10. Jeśli wartość w polu minut jest równa 0 to jest podmieniana na -1. To rozwiązuje problem 
  * kiedy funkcja odliczająca wywołuje się jeszcze raz kiedy licznik zejdzie do 0. Następnie tworzona jest podfunkcja, która wywołuje się co 1s
- * i rozpatruje kilka przypadków. Jeśli wartość sekund jest <0 ale wartość minut nie, to do zmiennej sekundowej jest przywpisywana wartość 59,
+ * i rozpatruje kilka przypadków. Jeśli wartość sekund jest &lt;0 ale wartość minut nie, to do zmiennej sekundowej jest przywpisywana wartość 59,
  * a zmienna minutowa jest dekrementowana o 1. Oprócz tego zostają dopisywane zera na początku przy liczbach mniejszych niż 10 i w przypadku , kiedy 
  * zmienna minutowa wynosi -1, wypisywana jest wartość 00. Kiedy warunek nie jest spełniony wartości wpisują się zgodnie z dekrementowanymi zmiennymi i
  * dodatkowo są im dodawane zera na początku jeżeli zachodzi taka potrzeba. Następuje dekrementacja zmiennej sekundowej. Sprawdzany jest warunek czy 
- * sekundy i minuty <0 i jeśli tak to usuwany jest setinterval i funkcja przestaje się wykonywać oraz uruchamia się animacja poprzez nadanie 
+ * sekundy i minuty &lt;0 i jeśli tak to usuwany jest setinterval i funkcja przestaje się wykonywać oraz uruchamia się animacja poprzez nadanie 
  * odpowiednich klas cząsteczkom, które będą animowane. Po zakończeniu odliczania flaga jest ustawiana na 0, aby użytkownik znowu mógł uruchomić kolejne 
  * odliczanie. Na końcu zostają usuwane style powodujące brak możliwości wpisywania wartości do pól.
  * 
@@ -353,7 +381,7 @@ function Start() {
 
   min = document.querySelector("#time").firstChild.nextSibling.value;
   sec = document.querySelector("#time").lastChild.previousSibling.value;
-  if (min == "00" && sec == "00") {
+  if (min == "00" &amp;&amp; sec == "00") {
     return;
   }
   flag1 = 1;
@@ -383,29 +411,29 @@ function Start() {
   document.querySelector("#time").firstChild.nextSibling.value = min;
   document.querySelector("#time").lastChild.previousSibling.value = sec;
 
-  if (min < 10)
+  if (min &lt; 10)
     document.querySelector("#time").firstChild.nextSibling.value = "0" + min;
-  if (sec < 10)
+  if (sec &lt; 10)
     document.querySelector("#time").lastChild.previousSibling.value = "0" + sec;
 
   if (min == 0) min = -1;
   timer = setInterval(function () {
-    if (sec < 0 && min >= 0) {
+    if (sec &lt; 0 &amp;&amp; min >= 0) {
       sec = 59;
       min--;
-      if (min < 10)
+      if (min &lt; 10)
         document.querySelector("#time").firstChild.nextSibling.value =
           "0" + min;
       else document.querySelector("#time").firstChild.nextSibling.value = min;
       if (min == -1)
         document.querySelector("#time").firstChild.nextSibling.value = "00";
     }
-    if (sec < 10)
+    if (sec &lt; 10)
       document.querySelector("#time").lastChild.previousSibling.value =
         "0" + sec;
     else document.querySelector("#time").lastChild.previousSibling.value = sec;
     sec--;
-    if (sec < 0 && min < 0) {
+    if (sec &lt; 0 &amp;&amp; min &lt; 0) {
       clearInterval(timer);
       part = document.querySelectorAll(".particle");
       part.forEach((par) => {
@@ -458,8 +486,8 @@ function SetDefaultValues() {
     cookieMinutesValue = String(59);
     cookieSecondsValue = String(59);
   }
-  if (cookieMinutesValue < 10) cookieMinutesValue = "0" + cookieMinutesValue;
-  if (cookieSecondsValue < 10) cookieSecondsValue = "0" + cookieSecondsValue;
+  if (cookieMinutesValue &lt; 10) cookieMinutesValue = "0" + cookieMinutesValue;
+  if (cookieSecondsValue &lt; 10) cookieSecondsValue = "0" + cookieSecondsValue;
   console.log(cookieMinutesValue);
   const exp = new Date(2147483647 * 1000).toUTCString();
   document.cookie = cookieMinutes + "=" + cookieMinutesValue + ";expires=" + exp;
@@ -471,3 +499,26 @@ function SetDefaultValues() {
 function Submit() {
   document.querySelector(".content").innerHTML = "Thanks for your opinion!";
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="List.html">List</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckChanges">CheckChanges</a></li><li><a href="global.html#Close">Close</a></li><li><a href="global.html#OnlyNumberInput">OnlyNumberInput</a></li><li><a href="global.html#Pause">Pause</a></li><li><a href="global.html#SetDefaultValues">SetDefaultValues</a></li><li><a href="global.html#SetPrevious">SetPrevious</a></li><li><a href="global.html#ShowContent">ShowContent</a></li><li><a href="global.html#Start">Start</a></li><li><a href="global.html#Submit">Submit</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#openNav">openNav</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Jan 31 2024 18:52:05 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

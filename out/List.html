@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: List</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: List</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2><span class="attribs"><span class="type-signature"></span></span>List<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">Klasa list przechowuje statyczne metody, które są używane przy operacjach na liście zadań.</div>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="List"><span class="type-signature"></span>new List<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".AddTask"><span class="type-signature">(static) </span>AddTask<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Metoda AddTask() pozwala dodać kolejne zadania do listy. Wywołuje się po naciścięciu przycisku Add znajdującego się na dole listy.Metoda tworzy nowy element HTML, ustawia mu odpowiednią klasę i dodaje do znaczniki HTML tworzące zadanie. Następnie taki elementjest dołączany do kontenera z zadaniami za pomocą appendChild. W kolejnym etapie dla każdego nowego elementu dodawany jest eventlistener, dzięki któremu skrytp może obłużyć operacje ukrywania na bieżąco zaznaczanych zadań
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".Cross"><span class="type-signature">(static) </span>Cross<span class="signature">(checkbox)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Metoda Cross służy do wykreślania zadania, które zostało oznaczone jako wykonane. Jako parametr przyjmuje element checkbox,dla którego zostaje wywołana, następnie sprawdza czy jest zaznaczony (metoda wywołuje się przez zdarzenie onchange, więcwywołała się także jeśli checkbox zostaje odznaczony). Jeśli checkbox jest zaznaczony to odpowiadającemu mu zadaniu zostaje nałożony styl przekreślenia. Jeśli nie jest zaznaczony(przypadek, gdzie zaznaczony checkbox zostaje odznaczony) to dtyl ten \jest usuwany.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>checkbox</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Parametr checkbox przyjmuje element HTML checkbox, dla którego jest wywoływana metoda.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line110">line 110</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".HideTasks"><span class="type-signature">(async, static) </span>HideTasks<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Metoda asynchroniczna HideTasks() umożliwia ukrywanie zadań, które zostały zaznaczone jako wykonane. Metoda jest opóżnionadzięki instrukncji await - metoda czeka aż wykona się funkcja setTimeout i dopiero wtedy kontynuuje działanie.Metoda pobiera wszystkie elementy checkbox i sprawdza czy są zaznaczone. Jeśli tak - zadaniu zostaje ustaiona klasa służąca doukrywania elementów. Oprócz tego każdy checkbox dostaje eventlistener aby móc wyłapać czy został zaznaczony.Na końcu metody następuje podmiana przycisków, tak aby widoczny był przycisk Show.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".ResizeTextarea"><span class="type-signature">(static) </span>ResizeTextarea<span class="signature">(task)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Metoda statyczna ResizeTextarea przyjmuje zadanie dla którego mają wykonać się operacje.Metoda służy do dynamicznego zmieniania wysokości elementu textarea tak, aby cały tekst zadania był widoczny.Metoda sprawdza czy tekst zajmuje najmniejszą dostępną przestrzeń i jeśli nie to taką ustawia (przypadek, kiedy użytkownik zmienia treść zadania na krótszą - rozmiar textarea się zmniejsza)Działanie metody to ustawienie wysokości elementu textarea równej całemu obszarowi jaki zajmuje treść zadania w elemencie.Wysokość tego obszaru jest pobierana za pomocą .scrollHeight
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>task</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">zaadnie, dla którego wywoływana jest funkcja</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".ResizeTextareawindow"><span class="type-signature">(static) </span>ResizeTextareawindow<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Rozszerzenie metody ResizeTextarea. Metoda wywołuje się dzięki window.addEventListener("resize") i reaguje na zmianę rozmiaru okna.W tej metodzie również pojawia się sprawdzenie czy tekst zajmuja najmniejszą możliwą wysokość.(Przypadek, kiedy użytkownik zmniejsza szerokość okna, a następnie znowu zwiększa - wysokość jest zawsze możliwie najmniejsza).Z tej metody wywoływana jest metoda ResizeTexarea ustawiająca odpowiednią wysokość.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".ShowTasks"><span class="type-signature">(static) </span>ShowTasks<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Metoda ShowTasks() służy do ponownego pokazania ukrytych zadań. Przycisk wywołujący tę metodę nie jest domyślnie widoczny. Pojawiasię dopiero po naciśnięciu przycisku Hide. Metoda pobiera wszystkie elementy checkbox i sprawdza czy są zaznaczone. Następnie ustawia odpowiadającym im zadaniom klasę, dzięki której są ponownie widoczne i usuwany jest eventListener wywołujący metodę HideTaskprzy zmianie stanu checkboxa. Na końcu metody następuje podmiana przycisków, tab aby ponownie widoczny był przycisk Hide.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="script.js.html">script.js</a>, <a href="script.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Background.html">Background</a></li><li><a href="List.html">List</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CheckChanges">CheckChanges</a></li><li><a href="global.html#Close">Close</a></li><li><a href="global.html#OnlyNumberInput">OnlyNumberInput</a></li><li><a href="global.html#Pause">Pause</a></li><li><a href="global.html#SetDefaultValues">SetDefaultValues</a></li><li><a href="global.html#SetPrevious">SetPrevious</a></li><li><a href="global.html#ShowContent">ShowContent</a></li><li><a href="global.html#Start">Start</a></li><li><a href="global.html#Submit">Submit</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#openNav">openNav</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Jan 31 2024 18:52:05 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
