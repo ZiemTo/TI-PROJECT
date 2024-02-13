@@ -390,6 +390,7 @@ function Start() {
 
   if (min == 0) min = -1;
   timer = setInterval(function () {
+    if (min == 0) min = -1;
     if (sec < 0 && min >= 0) {
       sec = 59;
       min--;
